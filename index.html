@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Quiz</h1>
+        <button id="startQuiz">Rozpocznij quiz</button>
+        <div id="quizContent" style="display: none;">
+            <div id="question"></div>
+            <ul id="answers">
+            </ul>
+            <button id="submit">Następne pytanie</button>
+            <div id="result"></div>
+
+            <button id="endQuiz" style="display: none;">Zakończ quiz</button>
+        </div>
+    </div>
+    <div id="results" style="display: none;">
+        <h2>Wyniki</h2>
+        <div id="score"></div>
+        <button id="newQuiz">Nowy quiz</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
