@@ -1,11 +1,14 @@
 ﻿body {
-    font-family: Arial, sans-serif;
+    font-family: DejaVu Sans;
 }
 
 .container {
     max-width: 600px;
     margin: 0 auto;
+    text-align: center;
 }
+
+
 
 ul {
     list-style-type: none;
@@ -23,8 +26,53 @@ button {
     border: none;
     cursor: pointer;
     font-size: 16px;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
     button:hover {
         background-color: #0056b3;
     }
+
+.quiz-heading {
+    font-size: 100px;
+    text-align: center;
+}
+
+.ad-container {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 600px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+}
+
+.left {
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.right {
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.center-text {
+    text-align: center;
+}
+
+#newQuiz {
+    margin-top: 20px; /* Dostosuj wartość marginesu do własnych potrzeb */
+}
+
+.question-text, .answer-text {
+    font-size: 20px; /* Dostosuj wielkość czcionki do własnych potrzeb */
+}
+
+.score-text {
+    font-size: 18px; /* Dostosuj wielkość czcionki do własnych potrzeb */
+}

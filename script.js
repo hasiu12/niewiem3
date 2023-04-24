@@ -19,7 +19,10 @@ let isLastAnswerNone = false;
         quizData = await response.json();
         initialDataLoaded = true;
 
-    }
+     }
+     // Przemieszaj pytania
+     shuffleArray(quizData);
+
     displayQuestion();
 }
 
@@ -27,6 +30,8 @@ let isLastAnswerNone = false;
 document.getElementById('startQuiz').addEventListener('click', function () {
     document.getElementById('startQuiz').style.display = 'none'; // Ukryj przycisk "Rozpocznij quiz"
     document.getElementById('quizContent').style.display = 'block'; // Wyœwietl zawartoœæ quizu
+    document.getElementById('instructions1').style.display = 'none';
+    document.getElementById('instructions2').style.display = 'none';
     fetchData(); // Pobierz dane z pliku JSON
 });
 
@@ -68,7 +73,10 @@ document.getElementById('endQuiz').addEventListener('click', function () {
 
     document.getElementById('quizContent').style.display = 'none'; // Ukryj zawartoœæ quizu
     document.getElementById('results').style.display = 'block'; // Wyœwietl wyniki
-    document.getElementById('score').textContent = `Poprawne odpowiedzi: ${correctAnswers}, b³êdne odpowiedzi: ${wrongAnswers}`; // Wyœwietl liczbê poprawnych i b³êdnych odpowiedzi
+    const scoreElement = document.getElementById('score');
+    scoreElement.classList.add('score-text');
+    scoreElement.innerHTML = `Poprawne odpowiedzi: ${correctAnswers}<br><br> B\u0142\u0119dne odpowiedzi: ${wrongAnswers}<br>`;
+    scoreElement.style.textAlign = 'center'; // Wyœwietl liczbê poprawnych i b³êdnych odpowiedzi
     document.getElementById('newQuiz').style.display = 'block'; // Wyœwietl przycisk "Nowy quiz"
 });
 
@@ -89,6 +97,8 @@ function createAnswerElement(answer, index, shuffledIndex) {
     const input = document.createElement('input'); // Stwórz element input
     const label = document.createElement('label'); // Stwórz element label
 
+
+
     // Ustaw atrybuty dla elementu input
     input.type = 'radio';
     input.name = 'answer';
@@ -102,6 +112,10 @@ function createAnswerElement(answer, index, shuffledIndex) {
     // Dodaj elementy input i label do elementu listy
     li.appendChild(input);
     li.appendChild(label);
+
+    label.htmlFor = `answer-${index}`;
+    label.textContent = answer;
+    label.classList.add('answer-text'); // Dodaj klasê 'answer-text'
 
     return li; // Zwróæ element listy z odpowiedzi¹
 }
@@ -159,6 +173,8 @@ async function displayQuestion() {
     //Obs³uga zdarzeñ klawisza "keydown"
     document.addEventListener('keydown', (event) => handleNumericKeyPress(event, answersCopy));
 
+    questionElement.classList.add('question-text');
+
     // Jeœli jesteœmy przy ostatnim pytaniu, ukryj przycisk "Nastêpne pytanie" i wyœwietl przycisk "Zakoñcz quiz"
     updateButtonsVisibility();
     resetAnswer();
@@ -176,7 +192,7 @@ async function displayQuestion() {
     input.value = -1;
     input.id = 'answer-none';
     label.htmlFor = 'answer-none';
-    label.textContent = '¯adne z powy¿szych';
+    label.textContent = '\u017badne z powy\u017cszych';
     isLastAnswerNone = true;
 }
 
