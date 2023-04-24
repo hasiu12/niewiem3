@@ -1,35 +1,156 @@
 [
   {
-    "question": "Jakiego koloru jest niebo?",
+    "question": "Procesory Core 2 nie posiadają:",
     "answers": [
-      "Niebieski",
-      "Zielony",
-      "Czerwony",
-      "Żółty",
-      "Fioletowy"
+      "Koprocesora arytmetycznego",
+      "Jednostki zarządzania pamięcią",
+      "Instrukcji MMX",
+      "Instrukcji FMA",
+      "Posiadają wszystkie"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Wykonując instrukcje enter procesor używa rejestrów:",
+    "answers": [
+      "CS",
+      "RS",
+      "DS",
+      "SS",
+      "FS"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Pośredni rejestrowy tryb adresowania występuje w instrukcji:",
+    "answers": [
+      "inc \t\t[ecx]",
+      "mov \t\tedx, offset zmienna",
+      "or \t\tedx, [ebx * tab]",
+      "mov\t\t[edi*8+tablica], edx",
+      "mov\t\tzmienna, edx"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Która z instrukcji nie jest poprawna:",
+    "answers": [
+      "cmovne",
+      "cmovgea",
+      "cmovnb",
+      "??",
+      "??"
+    ],
+    "correctAnswer": 3
+  },
+  {
+    "question": "Która z instrukcji zmienia flagę C:",
+    "answers": [
+      "??",
+      "not",
+      "iret",
+      "dec",
+      "lea"
     ],
     "correctAnswer": 0
   },
   {
-    "question": "Stolica Polski to:",
+    "question": "Po wykonaniu instrukcji:",
     "answers": [
-      "Kraków",
-      "Warszawa",
-      "Gdańsk",
-      "Poznań",
-      "Wrocław"
+      "popfd",
+      "??",
+      "inc",
+      "??",
+      "ret(?)"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 4
   },
   {
-    "question": "Stolica Polski2 to:",
+    "question": "Która z instrukcji pozwala na sprawdzenie bitu w rejestrze?",
     "answers": [
-      "Kraków",
-      "Warszawa",
-      "Gdańsk",
-      "Poznań",
-      "Wrocław"
+      "and",
+      "or",
+      "not (?)",
+      "xor (?)",
+      "Żadna z powyższych"
     ],
-    "correctAnswer": 1
+    "correctAnswer": 4
+  },
+  {
+    "question": "Szukając znaku w tekście użyjemy instrukcji:",
+    "answers": [
+      "copysb",
+      "??",
+      "lodsb",
+      "scasb",
+      "??"
+    ],
+    "correctAnswer": 4
+  },
+  {
+    "question": "Do przeszukiwania bitów w przód służy instrukcja:",
+    "answers": [
+      "bsr",
+      "inc",
+      "??",
+      "lea",
+      "bsf"
+    ],
+    "correctAnswer": 4
+  },
+  {
+    "question": "Tryb chroniony Intel wprowadził po raz pierwszy w procesorze:",
+    "answers": [
+      "Pentium 4",
+      "Pentium III",
+      "80486 DX",
+      "80386",
+      "80286"
+    ],
+    "correctAnswer": 4
+  },
+  {
+    "question": "Ile rejestrów dołożono w trybie EM64T procesorów Intel:",
+    "answers": [
+      "4",
+      "6",
+      "8",
+      "16",
+      "Żadne z powyższych"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Która instrukcja dla liczb bez znaku zamienia bajt na podwójne słowo:",
+    "answers": [
+      "movzx",
+      "movsx",
+      "xlatb",
+      "cbw",
+      "cbdw"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Która z instrukcji dla liczb bez znaku przesyła dla warunku mniejszości:",
+    "answers": [
+      "cmpbe",
+      "movl",
+      "cmovnae",
+      "movnge",
+      "cmovnl"
+    ],
+    "correctAnswer": 2
+  },
+  {
+    "question": "Ile operacji na podwójnych słowach może wykonać jedna instrukcja MMX:",
+    "answers": [
+      "1",
+      "2",
+      "4",
+      "32",
+      "64"
+    ],
+    "correctAnswer": 2
   }
 ]
