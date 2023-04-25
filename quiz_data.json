@@ -72,21 +72,21 @@
       "or",
       "not (?)",
       "xor (?)",
-      "Żadna z powyższych"
+      "żadna z powyższych"
     ],
     "correctAnswer": 4
   },
-  {
-    "question": "Szukając znaku w tekście użyjemy instrukcji:",
-    "answers": [
-      "copysb",
-      "??",
-      "lodsb",
-      "scasb",
-      "??"
-    ],
-    "correctAnswer": 4
-  },
+    {
+      "question": "Szukając znaku w tekście użyjemy instrukcji:",
+      "answers": [
+        "copysb",
+        "??",
+        "lodsb",
+        "scasb",
+        "??"
+      ],
+      "correctAnswer": 4
+    },
   {
     "question": "Do przeszukiwania bitów w przód służy instrukcja:",
     "answers": [
@@ -116,7 +116,7 @@
       "6",
       "8",
       "16",
-      "Żadne z powyższych"
+      "żadne z powyższych"
     ],
     "correctAnswer": 2
   },
@@ -152,5 +152,129 @@
       "64"
     ],
     "correctAnswer": 2
+  },
+  {
+    "question": "Ile rejestrów posiadał procesor 4004:",
+    "answers": [
+      "4 rejestry 4 bitowe",
+      "8 rejestrów 4 bitowych",
+      "t4 rejestry 8 bitowe",
+      "t16 rejestrów 4 bitowych",
+      "żadne z powyższych"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "W procesorze Sandy Bridge pojawiły się instrukcje:",
+    "answers": [
+      "MMX",
+      "SSE",
+      "AVX",
+      "FMA3",
+      "żadne z powyższych"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Ile rejestrów MMX występuje w trybie EM64T procesów Intel?",
+    "answers": [
+      "2",
+      "4",
+      "8",
+      "16",
+      "żadne z powyższych"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Przekroczenie zakresu liczb całkowitych ze znakiem wskazuje flaga:",
+    "answers": [
+      "CF",
+      "AF",
+      "SF",
+      "PF",
+      "żadna z powyższych"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Jaki tryb adresowania występuje dla następującego argumentu instrukcji:\n\t offset tabela",
+    "answers": [
+      "prosty",
+      "indeksowy",
+      "bezposredni",
+      "posredni bazowy",
+      "posredni bazowo-indeksowy"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Wykonanie instrukcji:\n\t push [edx]\n\t push [ebx]\n\t pop [edx]\n\t pop [ebx]\t odpowiadałoby instrukcji:",
+    "answers": [
+      "xor \t[edx], [ebx]",
+      "xchg \tedx, ebx",
+      "fxch \t[edx], [ebx]",
+      "xchg \t[edx], [ebx]",
+      "żadne z powyższych"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Która instrukcja pozwala na podanie dwóch argumentów z pamięci:",
+    "answers": [
+      "mov",
+      "lods",
+      "stos",
+      "scas",
+      "żadna z powyższych"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Po wykonaniu instrukcji:\n\t mov \t edx, 1000h\n\t bsf \t eax, edx",
+    "answers": [
+      "00000004h",
+      "0000000ch",
+      "00000012h",
+      "01000000h",
+      "żadna z powyższych"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Instrukcja fcompp zmienia flagi:",
+    "answers": [
+      "APC",
+      "OAC",
+      "OSZ",
+      "OZC",
+      "żadne z powyższych"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Która instrukcja sprawdza poprawność indeksu tablicy:",
+    "answers": [
+      "enter",
+      "leave",
+      "test",
+      "bound",
+      "żadna z powyższych"
+    ],
+    "correctAnswer": 0
+  },
+  {
+    "question": "Po wykonaniu, której instrukcji bity w AL. zmienią się na przeciwne?",
+    "answers": [
+      "xor eax, 255",
+      "neg al",
+      "ror al, 1",
+      "shl al, 8",
+      "mov al., notal"
+    ],
+    "correctAnswer": 0
   }
+
+
+
 ]

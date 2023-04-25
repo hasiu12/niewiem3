@@ -14,32 +14,30 @@
         <h2 id="instructions2">oraz zmiana pytania spacją</h2>
         <button id="startQuiz">Rozpocznij quiz</button>
 
-
         <div id="quizContent" style="display: none;">
             <div id="question"></div>
-            <ul id="answers">
-            </ul>
+            <ul id="answers"></ul>
             <button id="submit">Następne pytanie</button>
             <div id="result"></div>
-
             <button id="endQuiz" style="display: none;">Zakończ quiz</button>
+        </div>
 
+        <div id="allAnswers" style="display: none;"></div>
+
+        <div id="results" style="display: none;">
+            <h2>Wyniki</h2>
+            <div id="score"></div>
+            <button id="showResults" style="display: none;">Pokaż wyniki</button>
+            <button id="newQuiz">Nowy quiz</button>
         </div>
     </div>
-    <div id="results" style="display: none;">
-        <h2>Wyniki</h2>
-        <div id="score"></div>
-        <button id="newQuiz">Nowy quiz</button>
+    <div id="quiz-stats">
+        <p>Quizów rozpoczętych: <span id="attempts">0</span></p>
+        <p>Quizów ukończonych: <span id="completed">0</span></p>
+        <p>Quizów zdanych: <span id="passed">0</span></p>
     </div>
-    <div>
-        <script src="script.js"></script>
 
-    </div>
-    <div class="ad-container left">
-        <img src="mamuska.jpg" alt="Reklama" ;">
-    </div>
-    <div class="ad-container right">
-        <img src="inaczej.png" alt="Reklama" ;">
-    </div>
+    <script src="script.js"></script>
+    <script src="quiz-functions.js"></script>
 </body>
 </html>
