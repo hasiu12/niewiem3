@@ -8,8 +8,6 @@
     text-align: center;
 }
 
-
-
 ul {
     list-style-type: none;
     padding: 0;
@@ -39,40 +37,30 @@ button {
     text-align: center;
 }
 
-.ad-container {
-    position: fixed;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    width: 300px;
-    height: 600px;
-    background-color: #f2f2f2;
-    padding: 10px;
-    text-align: center;
-}
-
-.left {
-    left: 0;
-    transform: translateY(-50%);
-}
-
-.right {
-    right: 0;
-    transform: translateY(-50%);
-}
-
-.center-text {
-    text-align: center;
-}
-
 #newQuiz {
-    margin-top: 20px; /* Dostosuj wartość marginesu do własnych potrzeb */
+    margin-top: 20px;
 }
 
 .question-text, .answer-text {
-    font-size: 20px; /* Dostosuj wielkość czcionki do własnych potrzeb */
+    font-size: 20px;
 }
 
 .score-text {
-    font-size: 18px; /* Dostosuj wielkość czcionki do własnych potrzeb */
+    font-size: 18px;
+}
+
+.answer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }
