@@ -8,8 +8,8 @@ let quizData; // Dane z pliku JSON
 let initialDataLoaded = false; // Czy dane zosta³y ju¿ wczytane
 let isLastAnswerNone = false;
 const noneOfTheAboveOption = '¿adne z powy¿szych';
-const numberOfQuestions = 15;
-let odpowiedzi = new Array(numberOfQuestions);
+const numberOfQuestions = 3;
+let odpowiedzi = [];
 let userAnswers = new Array(numberOfQuestions).fill(null);
 
 
@@ -25,11 +25,10 @@ let userAnswers = new Array(numberOfQuestions).fill(null);
         initialDataLoaded = true;
 
      }
+
      // Przemieszaj pytania
      shuffleArray(quizData);
-
-     numberOfQuestions1 = Math.min(quizData.length, numberOfQuestions);
-
+ 
 
     displayQuestion();
 }
@@ -90,20 +89,30 @@ document.getElementById('endQuiz').addEventListener('click', function () {
         }
     }
     const isCompleted = true; // Quiz zawsze zostanie ukoñczony, gdy wywo³asz tê funkcjê
-    const isPassed = (correctAnswers / quizData.length) >= 0.75;
+    const isPassed = (correctAnswers /numberOfQuestions) >= 0.65;
     updateStats(isCompleted, isPassed);
     updateStatsDisplay();
     document.getElementById('quiz-stats').style.display = 'block';
 
-
+    
     document.getElementById('quizContent').style.display = 'none'; // Ukryj zawartoœæ quizu
     document.getElementById('results').style.display = 'block'; // Wyœwietl wyniki
     const scoreElement = document.getElementById('score');
     scoreElement.classList.add('score-text');
     scoreElement.innerHTML = `Poprawne odpowiedzi: ${correctAnswers}<br><br> B\u0142\u0119dne odpowiedzi: ${wrongAnswers}<br>`;
     scoreElement.style.textAlign = 'center'; // Wyœwietl liczbê poprawnych i b³êdnych odpowiedzi
-    document.getElementById('showResults').style.display = 'inline-block';
+
+    if (isPassed === true) {
+        kox.style.display = "block";
+        kox.style.margin = "auto";
+    }
+    else  {
+        bilsko.style.display = "block";
+        bilsko.style.margin = "auto";
+    }
+    document.getElementById('showResults').style.display = 'block';
     document.getElementById('newQuiz').style.display = 'block'; // Wyœwietl przycisk "Nowy quiz"
+    
 });
 
 document.getElementById('showResults').addEventListener('click', function () {

@@ -75,13 +75,16 @@ async function displayQuestion() {
     const answersElement = document.getElementById('answers');
 
     // Poprawiony napis "Pytanie x/numberOfQuestions1"
-    questionElement.innerHTML = `Pytanie ${currentQuestion + 1}/${numberOfQuestions1}: ${quizData[currentQuestion].question}`;
+    questionElement.innerHTML = `Pytanie ${currentQuestion + 1}/${numberOfQuestions}:<br> ${quizData[currentQuestion].question}`;
 
     answersElement.innerHTML = '';
 
     const answersCopy = quizData[currentQuestion].answers.map((answer, index) => ({ answer, index }));
     const shuffledAnswers = shuffleArray1(answersCopy);
     odpowiedzi[currentQuestion] = shuffledAnswers;
+    console.log('shuffledAnswers', shuffledAnswers);
+    console.log('shuffledAnswers', "xD");
+
 
     answersCopy.forEach(({ answer, index }) => {
         const li = createAnswerElement(answer, index);
@@ -167,7 +170,7 @@ function handleNumericKeyPress(event, answersCopy) {
         }
     } else if (key === ' ') {
         event.preventDefault(); // Zapobiegamy domyœlnemu dzia³aniu spacji (przewijanie strony)
-        if (currentQuestion === numberOfQuestions1 - 1) {
+        if (currentQuestion === numberOfQuestions - 1) {
             if (answerChecked === false) {
                 document.getElementById('endQuiz').click();
             }
@@ -179,7 +182,7 @@ function handleNumericKeyPress(event, answersCopy) {
 }
 
 function updateButtonsVisibility() {
-    if (currentQuestion === numberOfQuestions1 - 1) {
+    if (currentQuestion === numberOfQuestions - 1) {
         document.getElementById('submit').style.display = 'none';
         document.getElementById('endQuiz').style.display = 'block';
     } else {
@@ -199,56 +202,71 @@ function checkIfNoneExists(answers) {
 
 
 function showAllAnswers() {
+    kblisko();
     const answersContainer = document.getElementById('allAnswers');
     answersContainer.innerHTML = '';
-
+    odpowiedzi = odpowiedzi.slice(0, numberOfQuestions);
     quizData.forEach((data, index) => {
+        if (!odpowiedzi[index]) {
+            return;
+        }
+
         const questionElement = document.createElement('div');
         questionElement.innerHTML = `<h3>Pytanie ${index + 1}: ${data.question}</h3>`;
 
-        const correctAnswerIndex = data.correctAnswer;
-        const correctAnswer = odpowiedzi[index][correctAnswerIndex].answer;
-        const userAnswerIndex = odpowiedzi[index].findIndex(answer => answer.index === data.userAnswer);
+        if (odpowiedzi[index].length > 0) {
+            const correctAnswerIndex = data.correctAnswer;
+            const correctAnswer = odpowiedzi[index][correctAnswerIndex] ? odpowiedzi[index][correctAnswerIndex].answer : null;
+            const userAnswerIndex = odpowiedzi[index].findIndex(answer => answer.index === data.userAnswer);
 
+            odpowiedzi[index].forEach((answer, answerIndex) => {
+                const answerElement = document.createElement('p');
 
-        odpowiedzi[index].forEach((answer, answerIndex) => {
-            const answerElement = document.createElement('p');
+                if (answer.index === data.userAnswer) {
+                    answerElement.style.color = 'red';
+                }
+                if (answer.index === correctAnswerIndex) {
+                    answerElement.style.color = 'green';
+                }
 
-            if (answer.index === data.userAnswer) {
-                answerElement.style.color = 'red';
-            }
-            if (answer.index === correctAnswerIndex) {
-                answerElement.style.color = 'green';
-            }
-
-            answerElement.innerHTML = `${answerIndex + 1}. ${answer.answer}`;
-            questionElement.appendChild(answerElement);
-        });
+                answerElement.innerHTML = `${answerIndex + 1}. ${answer.answer}`;
+                questionElement.appendChild(answerElement);
+            });
+        }
 
         answersContainer.appendChild(questionElement);
     });
 
+    document.getElementById('newQuiz').style.display = 'block';
     document.getElementById('allAnswers').style.display = 'block';
 }
 
+
+function kblisko() {
+    bilsko.style.display = "none";
+    kox.style.display = "none";
+    document.getElementById('showResults').style.display = 'none';
+
+    results.style.display = "none";
+    document.getElementById('quiz-stats').style.display = 'none';
+}
 
 
 
 function restartQuiz() {
     document.getElementById('results').style.display = 'none'; // Ukryj wyniki
     document.getElementById('quizContent').style.display = 'block'; // Wyœwietl zawartoœæ quizu
-
+    document.getElementById('newQuiz').style.display = 'none';
     document.getElementById('allAnswers').style.display = 'none'; // Ukryj wszystkie odpowiedzi
     document.getElementById('results').style.display = 'block'; // Wyœwietl wyniki
+    kblisko();
 
-    document.getElementById('showResults').style.display = 'none';
-    document.getElementById('newQuiz').style.display = 'none';
-    results.style.display = "none";
 
     currentQuestion = 0; // Zresetuj indeks pytania
     correctAnswers = 0; // Zresetuj liczbê poprawnych odpowiedzi
     wrongAnswers = 0; // Zresetuj liczbê b³êdnych odpowiedzi
 
+    initialDataLoaded = false;
 
 
     fetchData(); // Pobierz dane z pliku JSON
