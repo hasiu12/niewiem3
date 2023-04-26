@@ -198,7 +198,7 @@
     "correctAnswer": 0
   },
   {
-    "question": "Jaki tryb adresowania występuje dla następującego argumentu instrukcji:\n\t offset tabela",
+    "question": "Jaki tryb adresowania występuje dla następującego argumentu instrukcji:\n<br>\n offset tabela",
     "answers": [
       "prosty",
       "indeksowy",
@@ -209,7 +209,7 @@
     "correctAnswer": 0
   },
   {
-    "question": "Wykonanie instrukcji:\n\t push [edx]\n\t push [ebx]\n\t pop [edx]\n\t pop [ebx]\t odpowiadałoby instrukcji:",
+    "question": "Wykonanie instrukcji:<br>\n<br>\n\t push [edx]<br>\n<br>\n\t push [ebx]<br>\n<br>\n\t pop [edx]<br>\n<br>\n\t pop [ebx]<br>\n<br>\n\t odpowiadałoby instrukcji:",
     "answers": [
       "xor \t[edx], [ebx]",
       "xchg \tedx, ebx",
@@ -231,7 +231,7 @@
     "correctAnswer": 0
   },
   {
-    "question": "Po wykonaniu instrukcji:\n\t mov \t edx, 1000h\n\t bsf \t eax, edx",
+    "question": "Po wykonaniu instrukcji::\n<br>\n mov \t edx, 1000h \n<br>\n bsf    eax, edx",
     "answers": [
       "00000004h",
       "0000000ch",
