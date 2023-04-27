@@ -11,20 +11,24 @@ const noneOfTheAboveOption = '¿adne z powy¿szych';
 const numberOfQuestions = 15;
 let odpowiedzi = [];
 let userAnswers = new Array(numberOfQuestions).fill(null);
-let devMode = false; // Zmienna przechowuj¹ca stan trybu deweloperskiego
 
 
 // Funkcja pobieraj¹ca dane z pliku JSON
-async function fetchData() {
+ async function fetchData() {
     console.log('Fetching quiz data...');
-    if (!initialDataLoaded) {
+     if (!initialDataLoaded) {
+
         // Pobierz dane z pliku JSON
+
         const response = await fetch('quiz_data.json');
         quizData = await response.json();
         initialDataLoaded = true;
-    }
 
+     }
 
+     // Przemieszaj pytania
+     shuffleArray(quizData);
+ 
 
     displayQuestion();
 }
@@ -133,10 +137,3 @@ document.getElementById('newQuiz').addEventListener('click', function () {
 
 });
 
-document.addEventListener("keydown", (event) => {
-    // SprawdŸ, czy naciœniête zosta³y klawisze Ctrl, Shift i N
-    if (event.ctrlKey && event.shiftKey && event.code === "KeyN") {
-        toggleDevMode(); // Prze³¹cz tryb deweloperski
-        event.preventDefault(); // Zapobiegnij domyœlnemu zachowaniu przegl¹darki
-    }
-});
