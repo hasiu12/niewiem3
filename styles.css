@@ -26,6 +26,11 @@ button {
     font-size: 16px;
     margin: 0 auto;
     margin-bottom: 20px;
+    border-radius: 25px;
+}
+
+#submit {
+    border-radius: 25px;
 }
 
     button:hover {
@@ -43,6 +48,7 @@ button {
 
 .question-text, .answer-text {
     font-size: 20px;
+    white-space: pre;
 }
 
 .score-text {
@@ -61,6 +67,77 @@ button {
     cursor: pointer;
 }
 
+.custom-answer-container {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
 .hidden {
     display: none;
+}
+
+#quizContentWrapper {
+    width: 50%;
+}
+
+#resultsWrapper {
+    width: 50%;
+}
+
+#quizContentContainer, #resultsContainer {
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#quizContentContainer {
+    display: none;
+}
+
+    #quizContentContainer.active {
+        display: block;
+    }
+
+#resultsWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#resultsContainer {
+    flex-basis: calc(50% - 10px);
+    margin-right: 10px;
+}
+
+#newQuiz {
+    background-color: #008CBA;
+    margin-top: 20px;
+}
+
+#image-container {
+    text-align: left;
+}
+
+    #image-container img {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #image-container div {
+        display: inline-block;
+        text-align: right;
+        vertical-align: middle;
+    }
+
+.indent {
+    white-space: pre;
 }
