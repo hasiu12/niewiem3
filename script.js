@@ -8,27 +8,23 @@ let quizData; // Dane z pliku JSON
 let initialDataLoaded = false; // Czy dane zosta³y ju¿ wczytane
 let isLastAnswerNone = false;
 const noneOfTheAboveOption = '¿adne z powy¿szych';
-const numberOfQuestions = 3;
+const numberOfQuestions = 15;
 let odpowiedzi = [];
 let userAnswers = new Array(numberOfQuestions).fill(null);
+let devMode = false; // Zmienna przechowuj¹ca stan trybu deweloperskiego
 
 
 // Funkcja pobieraj¹ca dane z pliku JSON
- async function fetchData() {
+async function fetchData() {
     console.log('Fetching quiz data...');
-     if (!initialDataLoaded) {
-
+    if (!initialDataLoaded) {
         // Pobierz dane z pliku JSON
-
         const response = await fetch('quiz_data.json');
         quizData = await response.json();
         initialDataLoaded = true;
+    }
 
-     }
 
-     // Przemieszaj pytania
-     shuffleArray(quizData);
- 
 
     displayQuestion();
 }
@@ -88,36 +84,45 @@ document.getElementById('endQuiz').addEventListener('click', function () {
             return;
         }
     }
+    quizData[currentQuestion].userAnswer = userAnswer; // Zapisz odpowiedŸ u¿ytkownika w quizData
+
     const isCompleted = true; // Quiz zawsze zostanie ukoñczony, gdy wywo³asz tê funkcjê
     const isPassed = (correctAnswers /numberOfQuestions) >= 0.65;
     updateStats(isCompleted, isPassed);
     updateStatsDisplay();
-    document.getElementById('quiz-stats').style.display = 'block';
-
     
+    const quizStats = document.getElementById('quiz-stats');
+    const bilsko = document.getElementById('bilsko');
+    const kox = document.getElementById('kox');
+
+
+    if (isPassed === true) {
+        kox.style.display = 'block';
+        kox.style.margin = 'auto';
+    }
+    else {
+        bilsko.style.display = 'block';
+        bilsko.style.margin = 'auto';
+    }
+
+    quizStats.style.display = 'block';
+
     document.getElementById('quizContent').style.display = 'none'; // Ukryj zawartoœæ quizu
     document.getElementById('results').style.display = 'block'; // Wyœwietl wyniki
     const scoreElement = document.getElementById('score');
     scoreElement.classList.add('score-text');
-    scoreElement.innerHTML = `Poprawne odpowiedzi: ${correctAnswers}<br><br> B\u0142\u0119dne odpowiedzi: ${wrongAnswers}<br>`;
+    scoreElement.innerHTML = `Poprawne odpowiedzi: ${correctAnswers}<br><br> B\u0142\u0119dne odpowiedzi: ${wrongAnswers}<br><br>`;
     scoreElement.style.textAlign = 'center'; // Wyœwietl liczbê poprawnych i b³êdnych odpowiedzi
 
-    if (isPassed === true) {
-        kox.style.display = "block";
-        kox.style.margin = "auto";
-    }
-    else  {
-        bilsko.style.display = "block";
-        bilsko.style.margin = "auto";
-    }
+ 
     document.getElementById('showResults').style.display = 'block';
     document.getElementById('newQuiz').style.display = 'block'; // Wyœwietl przycisk "Nowy quiz"
     
 });
 
 document.getElementById('showResults').addEventListener('click', function () {
-   
     showAllAnswers();
+
 });
 
 
@@ -128,3 +133,10 @@ document.getElementById('newQuiz').addEventListener('click', function () {
 
 });
 
+document.addEventListener("keydown", (event) => {
+    // SprawdŸ, czy naciœniête zosta³y klawisze Ctrl, Shift i N
+    if (event.ctrlKey && event.shiftKey && event.code === "KeyN") {
+        toggleDevMode(); // Prze³¹cz tryb deweloperski
+        event.preventDefault(); // Zapobiegnij domyœlnemu zachowaniu przegl¹darki
+    }
+});

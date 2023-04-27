@@ -71,6 +71,8 @@ function checkAnswer() {
 
 // Funkcja wyœwietlaj¹ca pytanie i odpowiedzi na stronie
 async function displayQuestion() {
+    // Przemieszaj pytania
+    quizData = shuffleArray(quizData);
     const questionElement = document.getElementById('question');
     const answersElement = document.getElementById('answers');
 
@@ -82,9 +84,7 @@ async function displayQuestion() {
     const answersCopy = quizData[currentQuestion].answers.map((answer, index) => ({ answer, index }));
     const shuffledAnswers = shuffleArray1(answersCopy);
     odpowiedzi[currentQuestion] = shuffledAnswers;
-    console.log('shuffledAnswers', shuffledAnswers);
-    console.log('shuffledAnswers', "xD");
-
+ 
 
     answersCopy.forEach(({ answer, index }) => {
         const li = createAnswerElement(answer, index);
@@ -125,11 +125,16 @@ function replaceLastAnswerWithNone(answersElement) {
 
 // Funkcja mieszaj¹ca elementy tablicy
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+    let shuffledArray = [...array]; // Tworzy kopiê tablicy, aby nie modyfikowaæ oryginalnych numerów ID
+
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]]; // Zamienia miejscami elementy i oraz j w tablicy
+        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Zamienia miejscami elementy i oraz j w tablicy
     }
+
+    return shuffledArray;
 }
+
 
 function shuffleArray1(array) {
     if (!checkIfNoneExists(quizData[currentQuestion].answers)) {
@@ -203,6 +208,7 @@ function checkIfNoneExists(answers) {
 
 function showAllAnswers() {
     kblisko();
+
     const answersContainer = document.getElementById('allAnswers');
     answersContainer.innerHTML = '';
     odpowiedzi = odpowiedzi.slice(0, numberOfQuestions);
@@ -216,8 +222,6 @@ function showAllAnswers() {
 
         if (odpowiedzi[index].length > 0) {
             const correctAnswerIndex = data.correctAnswer;
-            const correctAnswer = odpowiedzi[index][correctAnswerIndex] ? odpowiedzi[index][correctAnswerIndex].answer : null;
-            const userAnswerIndex = odpowiedzi[index].findIndex(answer => answer.index === data.userAnswer);
 
             odpowiedzi[index].forEach((answer, answerIndex) => {
                 const answerElement = document.createElement('p');
@@ -228,16 +232,19 @@ function showAllAnswers() {
                 if (answer.index === correctAnswerIndex) {
                     answerElement.style.color = 'green';
                 }
+                
 
                 answerElement.innerHTML = `${answerIndex + 1}. ${answer.answer}`;
                 questionElement.appendChild(answerElement);
+                answerElement.classList.add('answer-container');
+                answerElement.style.cursor = 'default';
             });
         }
 
         answersContainer.appendChild(questionElement);
     });
 
-    document.getElementById('newQuiz').style.display = 'block';
+
     document.getElementById('allAnswers').style.display = 'block';
 }
 
@@ -245,13 +252,46 @@ function showAllAnswers() {
 function kblisko() {
     bilsko.style.display = "none";
     kox.style.display = "none";
-    document.getElementById('showResults').style.display = 'none';
 
     results.style.display = "none";
     document.getElementById('quiz-stats').style.display = 'none';
 }
 
+async function toggleDevMode() {
+    devMode = !devMode; // Prze³¹cz wartoœæ zmiennej devMode
 
+    if (devMode) {
+        // W³¹cz tryb deweloperski
+        console.log("Tryb deweloperski w³¹czony");
+        // Wyœwietl okno dialogowe z polem tekstowym
+        const userInput = prompt("WprowadŸ indeks pytania dla trybu deweloperskiego:");
+        if (userInput !== null) {
+            console.log("Wprowadzone dane: ", userInput);
+            // Przetwórz wprowadzone dane - wyszukaj pytanie o podanym indeksie
+            const index = parseInt(userInput, 10);
+            if (!isNaN(index)) {
+                await findQuestionByIndex(index);
+            } else {
+                console.log("Wprowadzono niepoprawn¹ wartoœæ.");
+            }
+        }
+    } else {
+        // Wy³¹cz tryb deweloperski
+        console.log("Tryb deweloperski wy³¹czony");
+        // Dodaj kod do ukrywania dodatkowych funkcji i informacji dla trybu deweloperskiego
+    }
+}
+
+async function findQuestionByIndex(index) {
+    const questions = await fetchData();
+    const question = questions.find((q) => q.id === index);
+    if (question) {
+        console.log(`Pytanie ${index}: ${question.question}`);
+    } else {
+        console.log(`Nie znaleziono pytania o indeksie ${index}.`);
+    }
+    displayQuestion();
+}
 
 function restartQuiz() {
     document.getElementById('results').style.display = 'none'; // Ukryj wyniki
@@ -266,7 +306,6 @@ function restartQuiz() {
     correctAnswers = 0; // Zresetuj liczbê poprawnych odpowiedzi
     wrongAnswers = 0; // Zresetuj liczbê b³êdnych odpowiedzi
 
-    initialDataLoaded = false;
 
 
     fetchData(); // Pobierz dane z pliku JSON
