@@ -198,7 +198,7 @@
     "correctAnswer": 0
   },
   {
-    "question": "Jaki tryb adresowania występuje dla następującego argumentu instrukcji:\n<br>\n offset tabela",
+    "question": "Jaki tryb adresowania występuje dla następującego argumentu instrukcji:\n offset tabela",
     "answers": [
       "prosty",
       "indeksowy",
@@ -209,7 +209,7 @@
     "correctAnswer": 0
   },
   {
-    "question": "Wykonanie instrukcji:<br>\n<br>\n\t push [edx]<br>\n<br>\n\t push [ebx]<br>\n<br>\n\t pop [edx]<br>\n<br>\n\t pop [ebx]<br>\n<br>\n\t odpowiadałoby instrukcji:",
+    "question": "Wykonanie instrukcji:\n push [edx] \n push [ebx] \n pop [edx] \n pop [ebx] \n odpowiadałoby instrukcji:",
     "answers": [
       "xor \t [edx], [ebx]",
       "xchg \t edx, ebx",
@@ -374,7 +374,7 @@
     "correctAnswer": 0
   },
   {
-    "question": "Jakie wartości przyjmą flagi po wykonaniu instrukcji: \n<br>\n mov al.,222 \n<br>\n add al.,34",
+    "question": "Jakie wartości przyjmą flagi po wykonaniu instrukcji: \n mov al.,222 \n add al.,34",
     "answers": [
       "Z=1;C=0;P=0",
       "Z=0;C=1;P=0",
@@ -484,7 +484,7 @@
     "correctAnswer": 0
   },
   {
-    "question": "Jaki tryb adresowania występuje dla wyróżnionego argumentu instrukcji: \n<br>\n mov eax, [1234h]",
+    "question": "Jaki tryb adresowania występuje dla wyróżnionego argumentu instrukcji: \n mov eax, [1234h]",
     "answers": [
       "natychmiastowy",
       "indeksowy",
