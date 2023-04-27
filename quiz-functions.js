@@ -71,8 +71,6 @@ function checkAnswer() {
 
 // Funkcja wyœwietlaj¹ca pytanie i odpowiedzi na stronie
 async function displayQuestion() {
-    // Przemieszaj pytania
-    quizData = shuffleArray(quizData);
     const questionElement = document.getElementById('question');
     const answersElement = document.getElementById('answers');
 
@@ -125,16 +123,11 @@ function replaceLastAnswerWithNone(answersElement) {
 
 // Funkcja mieszaj¹ca elementy tablicy
 function shuffleArray(array) {
-    let shuffledArray = [...array]; // Tworzy kopiê tablicy, aby nie modyfikowaæ oryginalnych numerów ID
-
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
+    for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Zamienia miejscami elementy i oraz j w tablicy
+        [array[i], array[j]] = [array[j], array[i]]; // Zamienia miejscami elementy i oraz j w tablicy
     }
-
-    return shuffledArray;
 }
-
 
 function shuffleArray1(array) {
     if (!checkIfNoneExists(quizData[currentQuestion].answers)) {
@@ -257,41 +250,7 @@ function kblisko() {
     document.getElementById('quiz-stats').style.display = 'none';
 }
 
-async function toggleDevMode() {
-    devMode = !devMode; // Prze³¹cz wartoœæ zmiennej devMode
 
-    if (devMode) {
-        // W³¹cz tryb deweloperski
-        console.log("Tryb deweloperski w³¹czony");
-        // Wyœwietl okno dialogowe z polem tekstowym
-        const userInput = prompt("WprowadŸ indeks pytania dla trybu deweloperskiego:");
-        if (userInput !== null) {
-            console.log("Wprowadzone dane: ", userInput);
-            // Przetwórz wprowadzone dane - wyszukaj pytanie o podanym indeksie
-            const index = parseInt(userInput, 10);
-            if (!isNaN(index)) {
-                await findQuestionByIndex(index);
-            } else {
-                console.log("Wprowadzono niepoprawn¹ wartoœæ.");
-            }
-        }
-    } else {
-        // Wy³¹cz tryb deweloperski
-        console.log("Tryb deweloperski wy³¹czony");
-        // Dodaj kod do ukrywania dodatkowych funkcji i informacji dla trybu deweloperskiego
-    }
-}
-
-async function findQuestionByIndex(index) {
-    const questions = await fetchData();
-    const question = questions.find((q) => q.id === index);
-    if (question) {
-        console.log(`Pytanie ${index}: ${question.question}`);
-    } else {
-        console.log(`Nie znaleziono pytania o indeksie ${index}.`);
-    }
-    displayQuestion();
-}
 
 function restartQuiz() {
     document.getElementById('results').style.display = 'none'; // Ukryj wyniki
