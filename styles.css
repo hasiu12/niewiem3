@@ -33,9 +33,9 @@ button {
     border-radius: 25px;
 }
 
-    button:hover {
-        background-color: #0056b3;
-    }
+button:hover {
+    background-color: #0056b3;
+}
 
 .quiz-heading {
     font-size: 100px;
@@ -68,7 +68,6 @@ button {
 }
 
 .custom-answer-container {
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,4 +139,27 @@ button {
 
 .indent {
     white-space: pre;
+}
+
+#quizSelection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.quiz-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.quiz-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+}
+
+h3 {
+    font-size: 35px;
 }
