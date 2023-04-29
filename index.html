@@ -8,49 +8,103 @@
 </head>
 
 <body>
+
     <div class="container">
-        <h1 class="quiz-heading">Quiz</h1>
+        <div class="content-wrapper">
+            <h1 class="quiz-heading">Quiz</h1>
 
-        <h2 id="instructions1">Mozliwosc sterowania klawiszami 1-5</h2>
-        <h2 id="instructions2">oraz zmiana pytania spacją</h2>
+            <h2 id="instructions1">Mozliwosc sterowania klawiszami 1-5</h2>
+            <h2 id="instructions2">oraz zmiana pytania spacją</h2>
 
-        <button id="startQuiz">Rozpocznij quiz</button>
+            <h3 id="instructions3">Quizz ze wszystkich pytań</h3>
 
-        <div id="quizContent" style="display: none;">
-            <div id="question"></div>
-            <ul id="answers"></ul>
-            <button id="submit">Następne pytanie</button>
-            <div id="result"></div>
-            <button id="endQuiz" style="display: none;">Zakończ quiz</button>
-        </div>
+            <button id="startQuiz">Rozpocznij quiz</button>
 
-        <div id="allAnswers" style="display: none;"></div>
+            <div id="quizContent" style="display: none;">
+                <div id="question"></div>
+                <ul id="answers"></ul>
+                <button id="submit">Następne pytanie</button>
+                <div id="result"></div>
+                <button id="endQuiz" style="display: none;">Zakończ quiz</button>
+            </div>
 
-        <div id="results" style="display: none;">
-            <h2>Wyniki</h2>
-            <div id="score"></div>
-            <button id="showResults" style="display: none;">Pokaż wyniki</button>
+            <div id="allAnswers" style="display: none;"></div>
 
-        </div>
-        <button id="newQuiz" style="display: none;">Nowy quiz</button>
-    </div>
+            <div id="results" style="display: none;">
+                <h2>Wyniki</h2>
+                <div id="score"></div>
+
+                <button id="showResults" style="display: none;">Pokaż wyniki</button>
+                <button id="menu" style="display: none;">Menu główne</button>
+            </div>
+            <button id="newQuiz" style="display: none;">Nowy quiz</button>
+
+            <div id="quizSelection" class="quiz-selection">
+                <h3>Wybierz quiz:</h3>
+                <div class="quiz-row">
+                    <div class="quiz-col">
+                        <h2>Pytania 1-15:</h2>
+                        <button class="quiz-btn" data-quiz-index="0">Quiz 1</button>
+                    </div>
+                    <div class="quiz-col">
+                        <h2>Pytania 16-30:</h2>
+                        <button class="quiz-btn" data-quiz-index="1">Quiz 2</button>
+                    </div>
+                    <div class="quiz-col">
+                        <h2>Pytania 30-45:</h2>
+                        <button class="quiz-btn" data-quiz-index="2">Quiz 3</button>
+                    </div>
+                </div>
+                <div class="quiz-row">
+                    <div class="quiz-col">
+                        <h2>Pytania 46-60:</h2>
+                        <button class="quiz-btn" data-quiz-index="3">Quiz 4</button>
+                    </div>
+                    <div class="quiz-col">
+                        <h2>Pytania 61-75:</h2>
+                        <button class="quiz-btn" data-quiz-index="4">Quiz 5</button>
+                    </div>
+                    <div class="quiz-col">
+                        <h2>Pytania 76-90:</h2>
+                        <button class="quiz-btn" data-quiz-index="5">Quiz 6</button>
+                    </div>
+                </div>
+                <div class="quiz-row">
+                    <div class="quiz-col">
+                        <h2>Pytania 91-105:</h2>
+                        <button class="quiz-btn" data-quiz-index="6">Quiz 7</button>
+                    </div>
+                    <div class="quiz-col">
+                        <h2>Pytania 106-120:</h2>
+                        <button class="quiz-btn" data-quiz-index="7">Quiz 8</button>
+                    </div>
+                    <div class="quiz-col">
+                        <h2>Pytania 121-135:</h2>
+                        <button class="quiz-btn" data-quiz-index="8">Quiz 9</button>
+                    </div>
+                </div>
+            </div>
 
 
-    <div id="meme">
-        <img id="bilsko" img src="janusz.png" alt="Opis zdjęcia" style="display: none;">
+            <div id="quiz-container" class="quiz-container" style="display: none;"></div>
+            <div id="meme">
+                <img id="bilsko" img src="janusz.png" alt="Opis zdjęcia" style="display: none;">
+                <img id="poteznybilsko" img src="poteznybilsko.jpg" alt="Opis zdjęcia" style="display: none;">
+                <img id="kox" img src="koxx.png" alt="Opis zdjęcia" style="display: none;">
+                <img id="kox" img src="koxx.png" alt="Opis zdjęcia" style="display: none;">
+            </div>
 
-        <img id="kox" img src="koxx.png" alt="Opis zdjęcia" style="display: none;">
-
-    </div>
-
-    <div id="quiz-stats" style="display: none;">
-        <p>Quizów rozpoczętych: <span id="attempts">0</span></p>
-        <p>Quizów ukończonych: <span id="completed">0</span></p>
-        <p>Quizów zdanych: <span id="passed">0</span></p>
-    </div>
+            <div id="quiz-stats" style="display: none;">
+                <p>Quizów rozpoczętych: <span id="attempts">0</span></p>
+                <p>Quizów ukończonych: <span id="completed">0</span></p>
+                <p>Quizów zdanych: <span id="passed">0</span></p>
+            </div>
+        </div> <!-- Zamknięcie content-wrapper -->
+    </div> <!-- Zamknięcie container -->
 
     <script src="script.js"></script>
     <script src="quiz-functions.js"></script>
     <script src="visual-functions.js"></script>
 </body>
 </html>
+

@@ -9,42 +9,42 @@ let initialDataLoaded = false; // Czy dane zosta³y ju¿ wczytane
 let isLastAnswerNone = false;
 const noneOfTheAboveOption = '¿adne z powy¿szych';
 const numberOfQuestions = 15;
+const allOfTheAboveOption = 'wszystkie powy¿sze';
 let odpowiedzi = [];
 let userAnswers = new Array(numberOfQuestions).fill(null);
+let quizzes = [];
+let variant = false;
 
 
 // Funkcja pobieraj¹ca dane z pliku JSON
- async function fetchData() {
+async function fetchData() {
     console.log('Fetching quiz data...');
-     if (!initialDataLoaded) {
-
+    if (!initialDataLoaded) {
         // Pobierz dane z pliku JSON
-
         const response = await fetch('quiz_data.json');
-        quizData = await response.json();
+        quizData = await response.json(); // Pobierz wszystkie pytania
+        const allQuestions = quizData.slice(); // Stwórz kopiê wszystkich pytañ
+
         initialDataLoaded = true;
-
-     }
-
-     // Przemieszaj pytania
-     shuffleArray(quizData);
- 
-
+        generateQuizzes(allQuestions);
+    }
+    if (variant === false) {
+        shuffleArray(quizData);
+    }
+     
     displayQuestion();
+    
 }
 
 
 document.getElementById('startQuiz').addEventListener('click', function () {
+    
     answerChecked = false;
     updateStats(false, false);
     updateStatsDisplay();
-    document.getElementById('quiz-stats').style.display = 'none';
-
-    document.getElementById('startQuiz').style.display = 'none'; // Ukryj przycisk "Rozpocznij quiz"
-    document.getElementById('quizContent').style.display = 'block'; // Wyœwietl zawartoœæ quizu
-    document.getElementById('instructions1').style.display = 'none';
-    document.getElementById('instructions2').style.display = 'none';
+    visualNewQuizz()
     fetchData(); // Pobierz dane z pliku JSON
+    
 });
 
 document.getElementById('submit').addEventListener('click', function () {
@@ -97,17 +97,22 @@ document.getElementById('endQuiz').addEventListener('click', function () {
     
     const quizStats = document.getElementById('quiz-stats');
     const bilsko = document.getElementById('bilsko');
+    const poteznybilsko = document.getElementById('poteznybilsko');
     const kox = document.getElementById('kox');
 
 
-    if (isPassed === true) {
+    if (correctAnswers>9) {
         kox.style.display = 'block';
         kox.style.margin = 'auto';
     }
-    else {
-        bilsko.style.display = 'block';
-        bilsko.style.margin = 'auto';
+    if (correctAnswers < 3) {
+        poteznybilsko.style.display = 'block';
+        poteznybilsko.style.margin = 'auto';
     }
+    else  {
+                bilsko.style.display = 'block';
+                bilsko.style.margin = 'auto';
+      }
 
     quizStats.style.display = 'block';
 
@@ -117,7 +122,7 @@ document.getElementById('endQuiz').addEventListener('click', function () {
     scoreElement.classList.add('score-text');
     scoreElement.innerHTML = `Poprawne odpowiedzi: ${correctAnswers}<br><br> B\u0142\u0119dne odpowiedzi: ${wrongAnswers}<br><br>`;
     scoreElement.style.textAlign = 'center'; // Wyœwietl liczbê poprawnych i b³êdnych odpowiedzi
-
+    document.getElementById('menu').style.display = 'block'; // Wyœwietl wyniki
  
     document.getElementById('showResults').style.display = 'block';
     document.getElementById('newQuiz').style.display = 'block'; // Wyœwietl przycisk "Nowy quiz"
@@ -128,8 +133,23 @@ document.getElementById('showResults').addEventListener('click', function () {
     showAllAnswers();
 
 });
+document.getElementById('menu').addEventListener('click', function () {
+    currentQuestion = 0; // Zresetuj indeks pytania
+    correctAnswers = 0; // Zresetuj liczbê poprawnych odpowiedzi
+    wrongAnswers = 0; // Zresetuj liczbê b³êdnych odpowiedzi
+    visualMenu();
+
+});
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const quizButtons = document.querySelectorAll('.quiz-btn');
+    quizButtons.forEach((button) => {
+        button.addEventListener('click', handleQuizButtonClick);
+    });
+    fetchData();
+});
 
 document.getElementById('newQuiz').addEventListener('click', function () {
 
