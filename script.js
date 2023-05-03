@@ -17,17 +17,26 @@ let variant = false;
 
 
 
-// Funkcja pobieraj¹ca dane z pliku JSON
+// Funkcja pobierająca dane z pliku JSON
 async function fetchData() {
     console.log('Fetching quiz data...');
     if (!initialDataLoaded) {
-        // Pobierz dane z pliku JSON
-        const response = await fetch('/quiz_data.json');
-        quizData = await response.json(); // Pobierz wszystkie pytania
-        const allQuestions = quizData.slice(); // Stwórz kopiê wszystkich pytañ
+        try {
+            // Pobierz dane z pliku JSON
+            const response = await fetch('/quiz_data.json');
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
 
-        initialDataLoaded = true;
-        generateQuizzes(allQuestions);
+            quizData = await response.json(); // Pobierz wszystkie pytania
+            const allQuestions = quizData.slice(); // Stwórz kopię wszystkich pytań
+
+            initialDataLoaded = true;
+            generateQuizzes(allQuestions);
+        } catch (error) {
+            console.error('Error while fetching JSON data:', error);
+        }
     }
     if (variant === false) {
         shuffleArray(quizData);
