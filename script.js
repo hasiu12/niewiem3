@@ -17,19 +17,19 @@ let variant = false;
 
 
 
-// Funkcja pobierająca dane z pliku JSON
 async function fetchData() {
     console.log('Fetching quiz data...');
     if (!initialDataLoaded) {
         try {
-            // Pobierz dane z pliku JSON
-            const response = await fetch('/quiz_data.json');
-            
+            // Pobierz dane z JSONbin.io
+            const response = await fetch('https://api.jsonbin.io/v3/b/6452eae69d312622a356f1fc');
+
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
-            quizData = await response.json(); // Pobierz wszystkie pytania
+            const jsonResponse = await response.json(); // Pobierz dane z odpowiedzi
+            quizData = jsonResponse.record; // Przypisz dane do quizData
             const allQuestions = quizData.slice(); // Stwórz kopię wszystkich pytań
 
             initialDataLoaded = true;
