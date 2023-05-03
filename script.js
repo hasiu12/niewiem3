@@ -63,7 +63,7 @@ document.getElementById('submit').addEventListener('click', function () {
            // alert('Wybierz odpowiedŸ przed sprawdzeniem!'); // Wyœwietl ostrze¿enie, jeœli nie zaznaczono ¿adnej odpowiedzi
 
             // Dodaj ponownie event listener na zdarzenie 'keydown' po zamkniêciu alertu
-            document.addEventListener('keydown', (event) => handleNumericKeyPress(event, answersCopy));
+            //document.addEventListener('keydown', (event) => handleNumericKeyPress(event, answersCopy));
         }
     }
 });
