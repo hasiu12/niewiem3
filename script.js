@@ -1,15 +1,15 @@
 // Zmienne globalne
 let currentQuestion = 0; // Indeks aktualnego pytania
-let userAnswer; // Wybrana przez u¿ytkownika odpowiedŸ
-let answerChecked = false; // Czy odpowiedŸ zosta³a sprawdzona
+let userAnswer; // Wybrana przez uÂ¿ytkownika odpowiedÅ¸
+let answerChecked = false; // Czy odpowiedÅ¸ zostaÂ³a sprawdzona
 let correctAnswers = 0; // Liczba poprawnych odpowiedzi
-let wrongAnswers = 0; // Liczba b³êdnych odpowiedzi
+let wrongAnswers = 0; // Liczba bÂ³Ãªdnych odpowiedzi
 let quizData; // Dane z pliku JSON
-let initialDataLoaded = false; // Czy dane zosta³y ju¿ wczytane
+let initialDataLoaded = false; // Czy dane zostaÂ³y juÂ¿ wczytane
 let isLastAnswerNone = false;
-const noneOfTheAboveOption = '¿adne z powy¿szych';
+const noneOfTheAboveOption = 'Â¿adne z powyÂ¿szych';
 const numberOfQuestions = 3;
-const allOfTheAboveOption = 'wszystkie powy¿sze';
+const allOfTheAboveOption = 'wszystkie powyÂ¿sze';
 let odpowiedzi = [];
 let userAnswers = new Array(numberOfQuestions).fill(null);
 let quizzes = [];
@@ -17,14 +17,14 @@ let variant = false;
 
 
 
-// Funkcja pobieraj¹ca dane z pliku JSON
+// Funkcja pobierajÂ¹ca dane z pliku JSON
 async function fetchData() {
     console.log('Fetching quiz data...');
     if (!initialDataLoaded) {
         // Pobierz dane z pliku JSON
-        const response = await fetch('/quiz_data.json');
+        const response = await fetch('https://github.com/hasiu12/niewiem3/blob/main/quiz_data.json');
         quizData = await response.json(); // Pobierz wszystkie pytania
-        const allQuestions = quizData.slice(); // Stwórz kopiê wszystkich pytañ
+        const allQuestions = quizData.slice(); // StwÃ³rz kopiÃª wszystkich pytaÃ±
 
         initialDataLoaded = true;
         generateQuizzes(allQuestions);
@@ -49,20 +49,20 @@ document.getElementById('startQuiz').addEventListener('click', function () {
 
 document.getElementById('submit').addEventListener('click', function () {
     if (!answerChecked) {
-        // Pobierz zaznaczon¹ odpowiedŸ
+        // Pobierz zaznaczonÂ¹ odpowiedÅ¸
         const checkedAnswer = document.querySelector('input[name="answer"]:checked');
 
         if (checkedAnswer) {
-            userAnswer = parseInt(checkedAnswer.value); // Przekszta³æ wartoœæ zaznaczonej odpowiedzi na liczbê
-            checkAnswer(); // SprawdŸ odpowiedŸ
+            userAnswer = parseInt(checkedAnswer.value); // PrzeksztaÂ³Ã¦ wartoÅ“Ã¦ zaznaczonej odpowiedzi na liczbÃª
+            checkAnswer(); // SprawdÅ¸ odpowiedÅ¸
             answerChecked = true;
         } else {
-            // Usuñ event listener na zdarzenie 'keydown' przed wyœwietleniem alertu
+            // UsuÃ± event listener na zdarzenie 'keydown' przed wyÅ“wietleniem alertu
             document.removeEventListener('keydown', handleNumericKeyPress);
 
-           // alert('Wybierz odpowiedŸ przed sprawdzeniem!'); // Wyœwietl ostrze¿enie, jeœli nie zaznaczono ¿adnej odpowiedzi
+           // alert('Wybierz odpowiedÅ¸ przed sprawdzeniem!'); // WyÅ“wietl ostrzeÂ¿enie, jeÅ“li nie zaznaczono Â¿adnej odpowiedzi
 
-            // Dodaj ponownie event listener na zdarzenie 'keydown' po zamkniêciu alertu
+            // Dodaj ponownie event listener na zdarzenie 'keydown' po zamkniÃªciu alertu
             document.addEventListener('keydown', (event) => handleNumericKeyPress(event, answersCopy));
         }
     }
@@ -79,8 +79,8 @@ document.getElementById('showResults').addEventListener('click', function () {
 
 document.getElementById('menu').addEventListener('click', function () {
     currentQuestion = 0; // Zresetuj indeks pytania
-    correctAnswers = 0; // Zresetuj liczbê poprawnych odpowiedzi
-    wrongAnswers = 0; // Zresetuj liczbê b³êdnych odpowiedzi
+    correctAnswers = 0; // Zresetuj liczbÃª poprawnych odpowiedzi
+    wrongAnswers = 0; // Zresetuj liczbÃª bÂ³Ãªdnych odpowiedzi
     variant = false;
     visualMenu();
 
