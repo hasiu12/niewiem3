@@ -8,7 +8,7 @@ let quizData; // Dane z pliku JSON
 let initialDataLoaded = false; // Czy dane zosta³y ju¿ wczytane
 let isLastAnswerNone = false;
 const noneOfTheAboveOption = '¿adne z powy¿szych';
-const numberOfQuestions = 15;
+const numberOfQuestions = 3;
 const allOfTheAboveOption = 'wszystkie powy¿sze';
 let odpowiedzi = [];
 let userAnswers = new Array(numberOfQuestions).fill(null);
@@ -16,12 +16,13 @@ let quizzes = [];
 let variant = false;
 
 
+
 // Funkcja pobieraj¹ca dane z pliku JSON
 async function fetchData() {
     console.log('Fetching quiz data...');
     if (!initialDataLoaded) {
         // Pobierz dane z pliku JSON
-        const response = await fetch('quiz_data.json');
+        const response = await fetch('/quiz_data.json');
         quizData = await response.json(); // Pobierz wszystkie pytania
         const allQuestions = quizData.slice(); // Stwórz kopiê wszystkich pytañ
 
@@ -35,7 +36,6 @@ async function fetchData() {
     displayQuestion();
     
 }
-
 
 document.getElementById('startQuiz').addEventListener('click', function () {
     
@@ -60,7 +60,7 @@ document.getElementById('submit').addEventListener('click', function () {
             // Usuñ event listener na zdarzenie 'keydown' przed wyœwietleniem alertu
             document.removeEventListener('keydown', handleNumericKeyPress);
 
-            alert('Wybierz odpowiedŸ przed sprawdzeniem!'); // Wyœwietl ostrze¿enie, jeœli nie zaznaczono ¿adnej odpowiedzi
+           // alert('Wybierz odpowiedŸ przed sprawdzeniem!'); // Wyœwietl ostrze¿enie, jeœli nie zaznaczono ¿adnej odpowiedzi
 
             // Dodaj ponownie event listener na zdarzenie 'keydown' po zamkniêciu alertu
             document.addEventListener('keydown', (event) => handleNumericKeyPress(event, answersCopy));
@@ -69,78 +69,22 @@ document.getElementById('submit').addEventListener('click', function () {
 });
 
 document.getElementById('endQuiz').addEventListener('click', function () {
-
-    // Sprawdzanie ostatniej odpowiedzi
-    if (!answerChecked) {
-        const checkedAnswer = document.querySelector('input[name="answer"]:checked');
-        if (checkedAnswer) {
-            userAnswer = parseInt(checkedAnswer.value);
-            const correctAnswer = quizData[currentQuestion].correctAnswer;
-
-            if (userAnswer === correctAnswer) {
-                correctAnswers++;
-            } else {
-                wrongAnswers++;
-            }
-            answerChecked = true;
-        } else {
-            alert('Wybierz odpowiedŸ przed zakoñczeniem quizu!');
-            return;
-        }
-    }
-    quizData[currentQuestion].userAnswer = userAnswer; // Zapisz odpowiedŸ u¿ytkownika w quizData
-
-    const isCompleted = true; // Quiz zawsze zostanie ukoñczony, gdy wywo³asz tê funkcjê
-    const isPassed = (correctAnswers /numberOfQuestions) >= 0.65;
-    updateStats(isCompleted, isPassed);
-    updateStatsDisplay();
-    
-    const quizStats = document.getElementById('quiz-stats');
-    const bilsko = document.getElementById('bilsko');
-    const poteznybilsko = document.getElementById('poteznybilsko');
-    const kox = document.getElementById('kox');
-
-
-    if (correctAnswers>9) {
-        kox.style.display = 'block';
-        kox.style.margin = 'auto';
-    }
-    if (correctAnswers < 3) {
-        poteznybilsko.style.display = 'block';
-        poteznybilsko.style.margin = 'auto';
-    }
-    else  {
-                bilsko.style.display = 'block';
-                bilsko.style.margin = 'auto';
-      }
-
-    quizStats.style.display = 'block';
-
-    document.getElementById('quizContent').style.display = 'none'; // Ukryj zawartoœæ quizu
-    document.getElementById('results').style.display = 'block'; // Wyœwietl wyniki
-    const scoreElement = document.getElementById('score');
-    scoreElement.classList.add('score-text');
-    scoreElement.innerHTML = `Poprawne odpowiedzi: ${correctAnswers}<br><br> B\u0142\u0119dne odpowiedzi: ${wrongAnswers}<br><br>`;
-    scoreElement.style.textAlign = 'center'; // Wyœwietl liczbê poprawnych i b³êdnych odpowiedzi
-    document.getElementById('menu').style.display = 'block'; // Wyœwietl wyniki
- 
-    document.getElementById('showResults').style.display = 'block';
-    document.getElementById('newQuiz').style.display = 'block'; // Wyœwietl przycisk "Nowy quiz"
-    
+    endQuiz();
 });
 
 document.getElementById('showResults').addEventListener('click', function () {
     showAllAnswers();
 
 });
+
 document.getElementById('menu').addEventListener('click', function () {
     currentQuestion = 0; // Zresetuj indeks pytania
     correctAnswers = 0; // Zresetuj liczbê poprawnych odpowiedzi
     wrongAnswers = 0; // Zresetuj liczbê b³êdnych odpowiedzi
+    variant = false;
     visualMenu();
 
 });
-
 
 document.addEventListener('DOMContentLoaded', () => {
     

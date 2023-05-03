@@ -52,7 +52,7 @@ button:hover {
 }
 
 .score-text {
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .answer-container {
@@ -162,4 +162,27 @@ button:hover {
 
 h3 {
     font-size: 35px;
+}
+.styled-text {
+    font-size: 32px; /* Powiększ czcionkę */
+    padding: 8px; /* Dodaj wewnętrzne marginesy dla tekstu */
+}
+
+.question-container {
+    font-size: 28px; /* Powiększ czcionkę */
+    padding: 8px; /* Dodaj wewnętrzne marginesy dla tekstu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent; /* Zmień kolor ramki na przezroczysty */
+    border-radius: 5px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center; /* Wyśrodkuj tekst */
+    white-space: pre-wrap; /* Pozwól na zawijanie tekstu */
+}
+
+#newQuiz, #showResults {
+  display: inline-block;
+
 }

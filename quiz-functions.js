@@ -5,7 +5,6 @@ function createAnswerElement(answer, index, shuffledIndex) {
     const label = document.createElement('label'); // Stwórz element label
     const answerContainer = document.createElement('div');
 
-
     // Ustaw atrybuty dla elementu input
     input.type = 'radio';
     input.name = 'answer';
@@ -31,14 +30,16 @@ function createAnswerElement(answer, index, shuffledIndex) {
         event.stopPropagation();
     });
 
-
+    // Dodaj klasê 'answer-container' do elementu answerContainer
     answerContainer.classList.add('answer-container');
+    // Dodaj element input do answerContainer
     answerContainer.appendChild(input);
 
     // Dodaj elementy input i label do elementu listy
     answerContainer.appendChild(label);
     li.appendChild(answerContainer);
 
+    // Aktualizacja atrybutów elementu label
     label.htmlFor = `answer-${index}`;
     label.textContent = answer;
     label.classList.add('answer-text'); // Dodaj klasê 'answer-text'
@@ -46,99 +47,62 @@ function createAnswerElement(answer, index, shuffledIndex) {
     return li; // Zwróæ element listy z odpowiedzi¹
 }
 
-// Funkcja sprawdzaj¹ca odpowiedŸ i zliczaj¹ca wyniki
-function checkAnswer() {
-    const correctAnswer = quizData[currentQuestion].correctAnswer;
+function endQuiz() {
+    // Sprawdzanie ostatniej odpowiedzi
+    if (!answerChecked) {
+        const checkedAnswer = document.querySelector('input[name="answer"]:checked');
+        if (checkedAnswer) {
+            const checkedValue = parseInt(checkedAnswer.value);
+            if (checkedValue === -1) {
+                userAnswer = '¿adne z powy¿szych';
+            } else {
+                userAnswer = checkedValue;
+            }
+            const correctAnswer = quizData[currentQuestion].correctAnswer;
 
- if (userAnswer === correctAnswer) {
-        correctAnswers++;
-    } else {
-        wrongAnswers++;
+            if (userAnswer === correctAnswer) {
+                correctAnswers++;
+            } else {
+                wrongAnswers++;
+            }
+            answerChecked = true;
+        } else {
+            // alert('Wybierz odpowiedŸ przed zakoñczeniem quizu!');
+            return;
+        }
     }
-
     quizData[currentQuestion].userAnswer = userAnswer; // Zapisz odpowiedŸ u¿ytkownika w quizData
 
-    currentQuestion++;
-
-    if (currentQuestion < numberOfQuestions) {
-        setTimeout(() => {
-            displayQuestion();
-            resetAnswer();
-        }, 10);
-    }
-}
-
-
-// Funkcja wyœwietlaj¹ca pytanie i odpowiedzi na stronie
-async function displayQuestion() {
-    const questionElement = document.getElementById('question');
-    const answersElement = document.getElementById('answers');
-
-    // Poprawiony napis "Pytanie x/numberOfQuestions1"
-    questionElement.innerHTML = `Pytanie ${currentQuestion + 1}/${numberOfQuestions}:<br> ${quizData[currentQuestion].question}`;
-
-    answersElement.innerHTML = '';
-
-    const answersCopy = quizData[currentQuestion].answers.map((answer, index) => ({ answer, index }));
-    const shuffledAnswers = shuffleArray1(answersCopy);
-    odpowiedzi[currentQuestion] = shuffledAnswers;
- 
-
-    answersCopy.forEach(({ answer, index }) => {
-        const li = createAnswerElement(answer, index);
-        answersElement.appendChild(li);
-    });
-
-    // Zamieñ ostatni¹ odpowiedŸ na "¿adne z powy¿szych" z 30% szansami
-  //  if (Math.random() < 0.3 && !checkIfNoneExists(quizData[currentQuestion].answers)) {
-   //     replaceLastAnswerWithNone(answersElement);
-   //}
-
-    // Obs³uga zdarzeñ klawisza "keydown"
-    document.addEventListener('keydown', (event) => handleNumericKeyPress(event, answersCopy));
-
-    questionElement.classList.add('question-text');
-
-
-    // Jeœli jesteœmy przy ostatnim pytaniu, ukryj przycisk "Nastêpne pytanie" i wyœwietl przycisk "Zakoñcz quiz"
-    updateButtonsVisibility();
-    resetAnswer();
+    const isCompleted = true; // Quiz zawsze zostanie ukoñczony, gdy wywo³asz tê funkcjê
+    const isPassed = (correctAnswers / numberOfQuestions) >= 0.65;
+    updateStats(isCompleted, isPassed);
+    updateStatsDisplay();
+    visualEndQuiz(isPassed);
 }
 
 
 // Funkcja zamieniaj¹ca ostatni¹ odpowiedŸ na "¿adne z powy¿szych"
-function replaceLastAnswerWithNone(answersElement) {
-    // Pobierz ostatni element odpowiedzi
-    const lastAnswer = answersElement.lastChild;
-    const input = lastAnswer.querySelector('input');
-    const label = lastAnswer.querySelector('label');
+function replaceLastAnswerWithNone(answersElement, answers) {
+    const noneExists = checkIfNoneExists(answers);
+    const allExists = checkIfAllExists(answers);
 
-    // Ustaw atrybuty dla ostatniej odpowiedzi
-    input.value = -1;
-    input.id = 'answer-none';
-    label.htmlFor = 'answer-none';
-    label.textContent = '\u017badne z powy\u017cszych';
-    isLastAnswerNone = true;
-}
+    if (!noneExists && !allExists) {
+        const lastIndex = answers.length - 1;
 
-// Funkcja mieszaj¹ca elementy tablicy
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]]; // Zamienia miejscami elementy i oraz j w tablicy
+        // Pobierz ostatni element odpowiedzi
+        const lastAnswer = answersElement.children[lastIndex];
+        const input = lastAnswer.querySelector('input');
+        const label = lastAnswer.querySelector('label');
+
+        // Zaktualizuj atrybuty dla ostatniej odpowiedzi
+        input.value = -1;
+        input.id = `answer-${lastIndex}`;
+        label.htmlFor = `answer-${lastIndex}`;
+        label.textContent = '\u017badne z powy\u017cszych';
+
+        // Zaktualizuj listê odpowiedzi
+        answers[lastIndex].answer = '¿adne z powy¿szych';
     }
-}
-
-function shuffleArray1(array) {
-    if (!checkIfNoneExists(quizData[currentQuestion].answers)) {
-        for (let i = array.length - 2; i > 0; i--) {
-            const j = Math.floor(Math.random() * i);
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    } else {
-        [array[array.length - 1], array[noneOfTheAboveIndex]] = [array[noneOfTheAboveIndex], array[array.length - 1]];
-    }
-    return array;
 }
 
 // Funkcja resetuj¹ca zaznaczenie odpowiedzi
@@ -150,18 +114,12 @@ function resetAnswer() {
     answerChecked = false; // Ustaw, ¿e odpowiedŸ nie zosta³a sprawdzona
 }
 
-
 function handleNumericKeyPress(event, answersCopy) {
     const key = event.key;
     const numericKeys = ['1', '2', '3', '4', '5'];
-    const noneAnswerIndex = quizData[currentQuestion].answers.length - 1;
-    const isNoneAnswer = answersCopy[noneAnswerIndex].answer === '¿adne z powy¿szych';
 
     if (numericKeys.includes(key)) {
         let answerIndex = parseInt(key) - 1;
-        if (isNoneAnswer && answerIndex >= noneAnswerIndex) {
-            answerIndex--;
-        }
         const answerInput = document.getElementById(`answer-${answersCopy[answerIndex].index}`);
         if (answerInput) {
             answerInput.checked = true;
@@ -179,16 +137,6 @@ function handleNumericKeyPress(event, answersCopy) {
     }
 }
 
-function updateButtonsVisibility() {
-    if (currentQuestion === numberOfQuestions - 1) {
-        document.getElementById('submit').style.display = 'none';
-        document.getElementById('endQuiz').style.display = 'block';
-    } else {
-        document.getElementById('submit').style.display = 'block';
-        document.getElementById('endQuiz').style.display = 'none';
-    }
-}
-
 function checkIfNoneExists(answers) {
     for (const answer of answers) {
         if (answer.toLowerCase() === '¿adne z powy¿szych') {
@@ -197,6 +145,7 @@ function checkIfNoneExists(answers) {
     }
     return false;
 }
+
 function checkIfAllExists(answers) {
     for (const answer of answers) {
         if (answer.toLowerCase() === 'wszystkie powy¿sze') {
@@ -208,7 +157,7 @@ function checkIfAllExists(answers) {
 
 function showAllAnswers() {
     kblisko();
-
+    document.getElementById('menu').style.display = 'block'; // Wyœwietl wyniki
     const answersContainer = document.getElementById('allAnswers');
     answersContainer.innerHTML = '';
     odpowiedzi = odpowiedzi.slice(0, numberOfQuestions);
@@ -218,8 +167,19 @@ function showAllAnswers() {
         }
 
         const questionElement = document.createElement('div');
-        questionElement.innerHTML = `<h3>Pytanie ${index + 1}: ${data.question}</h3>`;
 
+        // Dodaj warunek sprawdzaj¹cy wartoœæ zmiennej "variant"
+        if (variant) {
+            const explainButton = document.createElement('button');
+            explainButton.textContent = 'Wyjaœnij';
+            explainButton.addEventListener('click', () => {
+                // Dodaj funkcjê, która bêdzie wykonywana po klikniêciu przycisku Wyjaœnij
+                explainAnswer(index);
+            });
+            questionElement.appendChild(explainButton);
+        }
+
+        questionElement.innerHTML = `<h3>Pytanie ${index + 1}: ${data.question}</h3>`;
         if (odpowiedzi[index].length > 0) {
             const correctAnswerIndex = data.correctAnswer;
 
@@ -232,7 +192,6 @@ function showAllAnswers() {
                 if (answer.index === correctAnswerIndex) {
                     answerElement.style.color = 'green';
                 }
-                
 
                 answerElement.innerHTML = `${answerIndex + 1}. ${answer.answer}`;
                 questionElement.appendChild(answerElement);
@@ -244,87 +203,20 @@ function showAllAnswers() {
         answersContainer.appendChild(questionElement);
     });
 
-
     document.getElementById('allAnswers').style.display = 'block';
 }
 
-
-
-
-
+function explainAnswer(questionIndex) {
+    const explanation = quizData[questionIndex].explanation;
+    alert(explanation);
+}
 
 function restartQuiz() {
     visualResetQuizz();
-
+    variant = false;
     currentQuestion = 0; // Zresetuj indeks pytania
     correctAnswers = 0; // Zresetuj liczbê poprawnych odpowiedzi
     wrongAnswers = 0; // Zresetuj liczbê b³êdnych odpowiedzi
 
     fetchData(); // Pobierz dane z pliku JSON
 }   
-
-function updateStats(isCompleted, isPassed) {
-    const attempts = parseInt(localStorage.getItem('attempts') || '0') + 1;
-    const completed = parseInt(localStorage.getItem('completed') || '0') + (isCompleted ? 1 : 0);
-    const passed = parseInt(localStorage.getItem('passed') || '0') + (isPassed ? 1 : 0);
-
-    localStorage.setItem('attempts', attempts);
-    localStorage.setItem('completed', completed);
-    localStorage.setItem('passed', passed);
-} 
-
-function updateStatsDisplay() {
-    document.getElementById('attempts').textContent = localStorage.getItem('attempts') || '0';
-    document.getElementById('completed').textContent = localStorage.getItem('completed') || '0';
-    document.getElementById('passed').textContent = localStorage.getItem('passed') || '0';
-}
-
-function podzielPytaniaNaQuizy(pytania, liczbaQuizow, pytaniaNaQuiz) {
-    const podzielonePytania = [];
-
-    shuffle(pytania);
-
-    for (let i = 0; i < liczbaQuizow; i++) {
-        const start = i * pytaniaNaQuiz;
-        const koniec = start + pytaniaNaQuiz;
-        const quiz = pytania.slice(start, koniec);
-        podzielonePytania.push(quiz);
-    }
-
-    return podzielonePytania;
-}
-
-function generateQuizzes(allQuestions) {
-    const numberOfQuizzes = 9;
-    const questionsPerQuiz = 15;
-
-    for (let i = 0; i < numberOfQuizzes; i++) {
-        const startIndex = i * questionsPerQuiz;
-        const endIndex = startIndex + questionsPerQuiz;
-        const quizQuestions = allQuestions.slice(startIndex, endIndex);
-        quizzes.push(quizQuestions);
-    }
-}
-
-
-
-function startSelectedQuiz(quizIndex) {
-    if (quizzes[quizIndex]) {
-        // Resetowanie stanu quizu
-        currentQuestion = 0;
-        score = 0;
-        answeredQuestions = 0;
-        correctAnswers = [];
-        odpowiedzi = [];
-        quizData = quizzes[quizIndex];
-        visualNewQuizz()
-        displayQuestion();
-        variant = true;
-    }
-}
-function handleQuizButtonClick(event) {
-    const quizIndex = event.target.dataset.quizIndex;
-    if (quizIndex !== undefined) {
-        startSelectedQuiz(parseInt(quizIndex));
-    }
-}

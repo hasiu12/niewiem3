@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "question": "Procesory Core 2 nie posiadają:",
     "answers": [
       "Koprocesora arytmetycznego",
@@ -8,9 +9,11 @@
       "Instrukcji FMA",
       "Posiadają wszystkie"
     ],
+    "explanation": "todo",
     "correctAnswer": 3
   },
   {
+    "id": 2,
     "question": "Wykonując instrukcje enter procesor używa rejestrów:",
     "answers": [
       "CS",
@@ -19,28 +22,1658 @@
       "SS",
       "FS"
     ],
+    "explanation": "todo",
     "correctAnswer": 3
   },
   {
-    "question": "Po wykonaniu której instrukcji zawartość AL zmieni się z 0cch na 033h",
+    "id": 3,
+    "question": "Pośredni rejestrowy tryb adresowania występuje w instrukcji:",
     "answers": [
-      "Neg al ",
-      "Not al",
-      "Mov 33h, al",
-      "Shl al, 1 ",
-      "Rol al, 1"
+      "inc [ecx]",
+      "mov edx, offset zmienna",
+      "or edx, [ebx * tab]",
+      "mov [edi*8+tablica], edx",
+      "mov zmienna, edx"
     ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 4,
+    "question": "Która z instrukcji nie jest poprawna:",
+    "answers": [
+      "cmovne",
+      "cmovgea",
+      "cmovnb",
+      "cmovbe",
+      "cmovba"
+    ],
+    "explanation": "todo",
     "correctAnswer": 1
   },
   {
-    "question": "Wykonanie instrukcji xor eax,eax odpowiada instrukcji:",
+    "id": 5,
+    "question": "Która z instrukcji zmienia flagę C:",
     "answers": [
-      "and eax,0",
-      "or eax,0ffh",
-      "clr eax",
-      "xchg eax,eax",
+      "fucomi",
+      "not",
+      "iret",
+      "dec",
+      "lea"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 6,
+    "question": "Która z instrukcji nie zmienia flagi?",
+    "answers": [
+      "popfd",
+      "add",
+      "inc",
+      "scasb",
+      "ret"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 4
+  },
+  {
+    "id": 7,
+    "question": "Która z instrukcji pozwala na sprawdzenie bitu w rejestrze?",
+    "answers": [
+      "and",
+      "or",
+      "not",
+      "xor",
+      "żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 4
+  },
+  {
+    "id": 8,
+    "question": "Szukając znaku w tekście użyjemy instrukcji:",
+    "answers": [
+      "copysb",
+      "cmpsb",
+      "lodsb",
+      "scasb",
+      "stosb"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 3
+  },
+  {
+    "id": 9,
+    "question": "Do przeszukiwania bitów w przód służy instrukcja:",
+    "answers": [
+      "bsr",
+      "inc",
+      "btc",
+      "lea",
+      "bsf"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 4
+  },
+  {
+    "id": 10,
+    "question": "Tryb chroniony Intel wprowadził po raz pierwszy w procesorze:",
+    "answers": [
+      "Pentium 4",
+      "Pentium III",
+      "80486 DX",
+      "80386",
+      "80286"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 4
+  },
+  {
+    "id": 11,
+    "question": "Ile rejestrów dołożono w trybie EM64T procesorów Intel:",
+    "answers": [
+      "4",
+      "6",
+      "8",
+      "16",
       "żadne z powyższych"
     ],
+    "explanation": "todo",
+    "correctAnswer": 3
+  },
+  {
+    "id": 12,
+    "question": "Która instrukcja dla liczb bez znaku zamienia bajt na podwójne słowo:",
+    "answers": [
+      "movzx",
+      "movsx",
+      "xlatb",
+      "cbw",
+      "cbdw"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 13,
+    "question": "Która z instrukcji dla liczb bez znaku przesyła dla warunku mniejszości:",
+    "answers": [
+      "cmpbe",
+      "movl",
+      "cmovnae",
+      "movnge",
+      "cmovnl"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 2
+  },
+  {
+    "id": 14,
+    "question": "Ile operacji na podwójnych słowach może wykonać jedna instrukcja MMX:",
+    "answers": [
+      "1",
+      "2",
+      "4",
+      "32",
+      "64"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 1
+  },
+  {
+    "id": 15,
+    "question": "Ile rejestrów posiadał procesor 4004:",
+    "answers": [
+      "4 rejestry 4 bitowe",
+      "8 rejestrów 4 bitowych",
+      "4 rejestry 8 bitowe",
+      "16 rejestrów 4 bitowych",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 3
+  },
+  {
+    "id": 16,
+    "question": "W procesorze Sandy Bridge pojawiły się instrukcje:",
+    "answers": [
+      "MMX",
+      "SSE",
+      "AVX",
+      "FMA3",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 2
+  },
+  {
+    "id": 17,
+    "question": "Ile rejestrów MMX występuje w trybie EM64T procesów Intel?",
+    "answers": [
+      "2",
+      "4",
+      "8",
+      "16",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 2
+  },
+  {
+    "id": 18,
+    "question": "Przekroczenie zakresu liczb całkowitych ze znakiem wskazuje flaga:",
+    "answers": [
+      "CF",
+      "AF",
+      "SF",
+      "PF",
+      "żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 4
+  },
+  {
+    "id": 19,
+    "question": "Jaki tryb adresowania występuje dla następującego argumentu instrukcji:\n offset tabela",
+    "answers": [
+      "prosty",
+      "indeksowy",
+      "bezposredni",
+      "posredni bazowy",
+      "posredni bazowo-indeksowy"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 20,
+    "question": "Wykonanie instrukcji:\n push [edx] \n push [ebx] \n pop [edx] \n pop [ebx] \n odpowiadałoby instrukcji:",
+    "answers": [
+      "xor [edx], [ebx]",
+      "xchg edx, ebx",
+      "fxch [edx], [ebx]",
+      "xchg [edx], [ebx]",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 4
+  },
+  {
+    "id": 21,
+    "question": "Która instrukcja pozwala na podanie dwóch argumentów z pamięci:",
+    "answers": [
+      "mov",
+      "lods",
+      "stos",
+      "scas",
+      "żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 4
+  },
+  {
+    "id": 22,
+    "question": "Po wykonaniu instrukcji::\n mov edx, 1000h \n bsf eax, edx",
+    "answers": [
+      "00000004h",
+      "0000000ch",
+      "00000012h",
+      "01000000h",
+      "żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 1
+  },
+  {
+    "id": 23,
+    "question": "Instrukcja fcompp zmienia flagi:",
+    "answers": [
+      "APC",
+      "OAC",
+      "OSZ",
+      "OZC",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 4
+  },
+  {
+    "id": 24,
+    "question": "Która instrukcja sprawdza poprawność indeksu tablicy:",
+    "answers": [
+      "enter",
+      "leave",
+      "test",
+      "bound",
+      "żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 3
+  },
+  {
+    "id": 25,
+    "question": "Po wykonaniu, której instrukcji bity w AL. zmienią się na przeciwne?",
+    "answers": [
+      "xor eax, 255",
+      "neg al",
+      "ror al, 1",
+      "shl al, 8",
+      "mov al, not al"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 26,
+    "question": "W którym procesorze intel po raz pierwszy zastosował stronicowanie:",
+    "answers": [
+      "8026",
+      "80288",
+      "80386",
+      "Pentium Pro",
+      "żaden z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 2
+  },
+  {
+    "id": 27,
+    "question": "Do odwołania się do zmiennych lokalnych podprogramu stosuje się rejestr:",
+    "answers": [
+      "EBP",
+      "EAX",
+      "ESX",
+      "ESI",
+      "DS"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 28,
+    "question": "W którym trybie adresowania adres zmiennej jest sumą dwóch rejestrów:",
+    "answers": [
+      "rejestrowym",
+      "bezpośrednim",
+      "natychmiastowym",
+      "we wszystkich powyższych",
+      "w żadnych z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 4
+  },
+  {
+    "id": 29,
+    "question": "Która instrukcja pozwala na podanie dwóch argumentów z pamięci:",
+    "answers": [
+      "mov",
+      "lods",
+      "stos",
+      "scal",
+      "żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 30,
+    "question": "Która z instrukcji nie jest poprawna:",
+    "answers": [
+      "fsub",
+      "fsub st,st(1)",
+      "fsubr st(1),st",
+      "fsubp st,st(1)",
+      "fsubrp st(1),st"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 3
+  },
+  {
+    "id": 31,
+    "question": "Która z instrukcji posiada dziedzinę <-1,1>:",
+    "answers": [
+      "fsub",
+      "fsin",
+      "f2xml",
+      "frndint",
+      "żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 2
+  },
+  {
+    "id": 32,
+    "question": "Która z instrukcji zmienia flagę C:",
+    "answers": [
+      "bswap",
+      "inc",
+      "cwd",
+      "fsub",
+      "fcomi"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 4
+  },
+  {
+    "id": 33,
+    "question": "By wykryć, że pierwszy argument (U2) porównania jest mniejszy lub równy wykonamy:",
+    "answers": [
+      "jbe",
+      "jng",
+      "jge",
+      "ja",
+      "jnle"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 34,
+    "question": "Instrukcja fcomip zmienia flagi:",
+    "answers": [
+      "APC",
+      "OAC",
+      "OSZ",
+      "OZC",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 35,
+    "question": "Jakie wartości przyjmą flagi po wykonaniu instrukcji: \n mov al.,222 \n add al.,34",
+    "answers": [
+      "Z=1;C=0;P=0",
+      "Z=0;C=1;P=0",
+      "Z=1;C=1;P=1",
+      "Z=0;C=0;P=1",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 36,
+    "question": "Po wykonaniu, której instrukcji zawartość AL. Zmieni się z 0a5h na 5ah?",
+    "answers": [
+      "xor al.,255",
+      "neg al",
+      "ror al,1",
+      "shl al,2",
+      "mov 5ah,al"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 37,
+    "question": "Instrukcja cpuid najczęściej jako wejścia używa rejestrów:",
+    "answers": [
+      "eax; ebx; ecx; edx",
+      "eax; ebx",
+      "eax; edx",
+      "eax",
+      "nie ma takiej instrukcji"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 38,
+    "question": "Po wykonaniu, której instrukcji dla AL=07eh, zawartość AL zmieni się na 2?",
+    "answers": [
+      "or al,93h",
+      "and al,83h",
+      "rol al,2",
+      "rlc al,1",
+      "mov al,91h"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 39,
+    "question": "Zestaw instrukcji SEE został zaprojektowany dla rejestrów:",
+    "answers": [
+      "MMX",
+      "XMM",
+      "YMM",
+      "ZMM",
+      "Rnr."
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 40,
+    "question": "Prefix LOCK nie może odnosić się do instrukcji:",
+    "answers": [
+      "inc",
+      "add",
+      "xchg",
+      "cmc",
+      "btr"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 41,
+    "question": "Procesor Intel 8086 powstał w roku:",
+    "answers": [
+      "1985",
+      "1972",
+      "1978",
+      "1981",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 42,
+    "question": "Który procesor jako pierwszy posiadał 32. bitowa szynę adresową:",
+    "answers": [
+      "8080",
+      "8086",
+      "80188",
+      "80288",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 43,
+    "question": "Generator liczb losowych pojawił się w procesorze:",
+    "answers": [
+      "Penium IV",
+      "Sandy Bridge",
+      "Ivy Bridge",
+      "Haswell",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 44,
+    "question": "Której flagi nie wykorzystuje się w instrukcji skoku warunkowego:",
+    "answers": [
+      "AF",
+      "CF",
+      "OF",
+      "PF",
+      "żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 45,
+    "question": "Jaki tryb adresowania występuje dla wyróżnionego argumentu instrukcji: \n mov eax, [1234h]",
+    "answers": [
+      "natychmiastowy",
+      "indeksowy",
+      "bezpośredni",
+      "pośredni bazowy",
+      "pośredni bazowo-indeksowy"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 4,
+    "question": "Która z instrukcji umożliwia wyzerowanie rejestru?",
+    "answers": [
+      "sub",
+      "mov",
+      "zer",
+      "wszystkie powyższe",
+      "żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 46,
+    "question": "Która z Instrukcji pozwala na wypełnienie bez pętli obszary pamięci:",
+    "answers": [
+      "mov",
+      "stos",
+      "kds",
+      "scas",
+      "żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 47,
+    "question": "Po wykonaniu instrukcji \n mov edx, 8234h \n blsi eax, edx \n rejestr eax będzie zawierał:",
+    "answers": [
+      "00000000h",
+      "00000002h",
+      "00000004h",
+      "00000010h",
+      "Żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 48,
+    "question": "Instrukcje programu przechowuje się w segmencie wskazywanym przez:",
+    "answers": [
+      "CS",
+      "DS",
+      "ES",
+      "wszystkie powyższe",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 49,
+    "question": "Która z instrukcji nie istnieje:",
+    "answers": [
+      "fcompp",
+      "fucomi",
+      "fucomip",
+      "ficompp",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 50,
+    "question": "Po wykonaniu której z instrukcji zawartość AL. Zmieni się z 0a5b na Win?",
+    "answers": [
+      "xor al, 5ah",
+      "ror al, 4",
+      "rcl al, 1",
+      "shl al, 2",
+      "mov Offh, al"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 51,
+    "question": "Który rejestr (EM64T) musi byt zabezpieczony przed użyciem:",
+    "answers": [
+      "RAX",
+      "R12",
+      "YMM5",
+      "RDX",
+      "XMM3"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 52,
+    "question": "Która z instrukcji dla liczb bez znaku przesyła dla warunku większe równe?",
+    "answers": [
+      "movle",
+      "cmovng",
+      "cmovnle",
+      "comvnb",
+      "cmpbe"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 53,
+    "question": "Dziedziną x w instrukcji fyl2x jest przedział:",
+    "answers": [
+      "(0..1>",
+      "(0..∞)",
+      "<-1..1>",
+      "<-∞..∞>",
+      "(-(1-√2/2)..(1-√2/2))"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 54,
+    "question": "Przeszukiwanie bitów wstecz realizuje funkcja:",
+    "answers": [
+      "blsmsk",
+      "btc",
+      "bcxtr",
+      "blsr",
+      "bsr"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 55,
+    "question": "Współczesne procesory Intel i7 zbudowane są z około:",
+    "answers": [
+      "100 tys. Tranzystorów",
+      "1 mln tranzystorów",
+      "10 mln tranzystorów",
+      "100 min tranzystorów",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 56,
+    "question": "Do odwołania się do parametrów aktualnych podprogramu stosuje się rejestr",
+    "answers": [
+      "EAX",
+      "EBX",
+      "EBP",
+      "ESI",
+      "DS"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 57,
+    "question": "W którym trybie adresowania adres zmiennej zawiera się w kodzie instrukcji:",
+    "answers": [
+      "rejestrowym",
+      "bezpośrednim",
+      "natychmiastowym",
+      "we wszystkich powyższych",
+      "w żadnym z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 58,
+    "question": "Która z instrukcji nie jest poprawna:",
+    "answers": [
+      "fmul",
+      "fadd st,st(1)",
+      "faddp st,st(1)",
+      "fsubr st(1),st",
+      "fsubrp st(1),st"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 59,
+    "question": "Która z instrukcji zmienia flagę C:",
+    "answers": [
+      "fmul",
+      "fcomi",
+      "bswap",
+      "dec",
+      "cwd"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 60,
+    "question": "Po wykonaniu instrukcji \n mov ecx, 01020304h \n mov eax, 76543210h \n shr eax, cl \n bts eax, 1fh  \n rejestr eax będzie zawierał:",
+    "answers": [
+      "07654321h",
+      "43b21901h",
+      "65432108h",
+      "87654321h",
+      "80765432h"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 61,
+    "question": "Która z instrukcji jest wykorzystywana w trakcie przenoszenia flag C3, C2 i CO do flag ZF, PF i CF?",
+    "answers": [
+      "cmc",
+      "fclex",
+      "fldew",
+      "fstf",
+      "sahf"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 62,
+    "question": "Która z instrukcji umożliwia dodanie trzech wartości?",
+    "answers": [
+      "lea",
+      "add",
+      "xadd",
+      "iadd",
+      "cwde"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 63,
+    "question": "Która z instrukcji pozwala na przeszukiwanie podanego znaku w tekście?",
+    "answers": [
+      "movsd",
+      "lodvw",
+      "cmpsb",
+      "scasb",
+      "stosw"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 64,
+    "question": "Prefix LOCK może odnosić się do instrukcji:",
+    "answers": [
+      "inc",
+      "nop",
+      "cmp",
+      "cmc",
+      "fdiv"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 65,
+    "question": "Instrukcje AVX Intel wprowadził po raz pierwszy w procesorze:",
+    "answers": [
+      "Pentium II",
+      "Pentium 4",
+      "Pentium D",
+      "Sandy Bridge",
+      "Ivy Bndge"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 66,
+    "question": "Ile rejestrów YMM posiadają w trybie EM64T procesory Intel",
+    "answers": [
+      "8",
+      "16",
+      "32",
+      "64",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 67,
+    "question": "Do prostego szyfrowania danych może służyć instrukcja:",
+    "answers": [
+      "xlatb",
+      "movsd",
+      "btr",
+      "cwde",
+      "les"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 68,
+    "question": "Która z instrukcji dla liczb ze znakiem przesyła dla warunku większości?",
+    "answers": [
+      "movg",
+      "movae",
+      "cmovnle",
+      "cmova",
+      "cmpa"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 69,
+    "question": "Do zmiany kolejności słów w rejestrze MMX siuty instrukcja:",
+    "answers": [
+      "psadbw",
+      "pshufw",
+      "ldmxcsr",
+      "pmovmskb",
+      "cmovnge"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 70,
+    "question": "Operację przesyłania bez użycia pamięci podręcznej w AVX realizuje instrukcja:",
+    "answers": [
+      "vmovdqu",
+      "vmaskmovdqu",
+      "vpshufhw",
+      "vmovntdq",
+      "vpunpcklqdq"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 71,
+    "question": "W którym procesorze Intela pojawił się po raz pierwszy tryb chroniony?",
+    "answers": [
+      "8086",
+      "80286",
+      "80486DX",
+      "Pentium Pro",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 72,
+    "question": "Parametry aktualne przechowuje się w segmencie:",
+    "answers": [
+      "CS",
+      "DS",
+      "ES",
+      "SS",
+      "FS"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 73,
+    "question": "Indeksowy tryb adresowania występuje w instrukcji:",
+    "answers": [
+      "inc esi",
+      "mov edi, offset zmienna",
+      "mov zmienna, rdx",
+      "or edx, [rbx]",
+      "mov [rax*8 + tablica], rdx"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 74,
+    "question": "Która z Instrukcji nie jest poprawna?",
+    "answers": [
+      "fmul",
+      "fadd st,st(1)",
+      "fstp st(1)",
+      "fbld st(1)",
+      "fsubr st(1),st"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 75,
+    "question": "Która z Instrukcji nie zmienia flagi P?",
+    "answers": [
+      "dec",
+      "cmp",
+      "padd",
+      "xadd",
+      "fcomi"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 76,
+    "question": "Po wykonaniu instrukcji: \n mov ecx, 10023004h \n mov eax, 87654321h \n sar eax, c1 \n bts eax, 23 \n rejestr eax będzie zawierał:",
+    "answers": [
+      "08765433h",
+      "019765432h",
+      "0f8f65432h",
+      "0987654h",
+      "021436587h"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 77,
+    "question": "Która instrukcja neguje flagę CF?",
+    "answers": [
+      "cmc",
+      "stc",
+      "cld",
+      "std",
+      "clc"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 78,
+    "question": "Która z instrukcji umożliwia wpisanie wartości do dwóch rejestrów?",
+    "answers": [
+      "rcl",
+      "lds",
+      "add",
+      "movbe",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 79,
+    "question": "Która z instrukcji pozwala na wypełnienie tekstu znakiem?",
+    "answers": [
+      "scasb",
+      "movsd",
+      "lodsb",
+      "cmpsb",
+      "stosb"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 80,
+    "question": "Prefix LOCK nie odnosi się do instrukcji:",
+    "answers": [
+      "lea",
+      "btr",
+      "xchg",
+      "cmpxch8b",
+      "neg"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 81,
+    "question": "Instrukcja SSE Intel wprowadził po raz pierwszy w procesorze:",
+    "answers": [
+      "Ivy Bridge",
+      "Sandy Bridge",
+      "Core 2 Duo",
+      "Pentium III",
+      "Pentium MMX"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 82,
+    "question": "Ile rejestrów YMM używają w trybie x86 procesory Intel?",
+    "answers": [
+      "8",
+      "16",
+      "32",
+      "64",
+      "nie ma takich rejestrów"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 83,
+    "question": "Która instrukcja dla liczb ze znakiem zmienia słowa na podwójne słowo",
+    "answers": [
+      "movzx",
+      "cbw",
+      "cwde",
+      "xlatb",
+      "bswap"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 84,
+    "question": "Która z Instrukcji dla liczb bez znaku przesyła warunki większości",
+    "answers": [
+      "cmpbe",
+      "movb",
+      "movae",
+      "cmovnge",
+      "cmovnbe"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 85,
+    "question": "Do zmiany kolejności slów w rejestrze MMX siuty instrukcja:",
+    "answers": [
+      "cmovnge",
+      "pmovmskb",
+      "psadbw",
+      "pshufw",
+      "idmxcsr"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 86,
+    "question": "Procesory Core 2 posiadają współczynnik IPC (Instruction Per Cycle) równy:",
+    "answers": [
+      "4",
+      "3,5",
+      "2,5",
+      "2",
+      "3"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 87,
+    "question": "Wykonując instrukcję push byte ptr[eax] procesor używa segmentów",
+    "answers": [
+      "CS i DS",
+      "ES i DS",
+      "DS i SS",
+      "SS i GS",
+      "FS i CS"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 88,
+    "question": "Pośredni bazowy tryb adresowania występuje w instrukcji:",
+    "answers": [
+      "inc ecx",
+      "mov edi, offset zmienna",
+      "or edx, [ebx+tab]",
+      "mov [edi*8+tablica], edx",
+      "mov zmienna, edx"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 89,
+    "question": "Która instrukcja nie jest poprawna:",
+    "answers": [
+      "fcmovne",
+      "fcmovnbe",
+      "fcmovnu",
+      "fcmovnb",
+      "fcmovl"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 90,
+    "question": "Która z instrukcji nie zmienia flagi Z:",
+    "answers": [
+      "ficom",
+      "neg",
+      "dec",
+      "cmp",
+      "xadd"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 91,
+    "question": "Po wykonaniu instrukcji: \n mov ecx, 10023004h \n mov eax, 87654321h \n shr eax, cl \n bsr edx, eax \n Rejestr edx będzie zawierał?",
+    "answers": [
+      "0",
+      "1",
+      "15",
+      "27",
+      "32"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 92,
+    "question": "Która z instrukcji nie zmienia flagi CF?",
+    "answers": [
+      "cmc",
+      "add",
+      "stc",
+      "clc",
+      "inc"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 93,
+    "question": "Kopiując tekst użyjemy instrukcji:",
+    "answers": [
+      "copysb",
+      "movsb",
+      "lodsb",
+      "cpsb",
+      "stosb"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 94,
+    "question": "Do przeszukiwania bitów wstecz służy instrukcja:",
+    "answers": [
+      "bsr",
+      "btc",
+      "test",
+      "lea",
+      "bsf"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 95,
+    "question": "Jednostkę zarządzania pamięcią Intel wprowadził po raz pierwszy w procesorze:",
+    "answers": [
+      "Pentiunm 4",
+      "Pentium III",
+      "80486 DX",
+      "80386",
+      "80286"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 96,
+    "question": "Ile rejestrów segmentowych dołożono w trybie EMT64T procesorów Intel",
+    "answers": [
+      "2",
+      "4",
+      "6",
+      "8",
+      "żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 97,
+    "question": "Ile rejestrów XMM posiadająw trybie EMT64T procesory Intel",
+    "answers": [
+      "8",
+      "16",
+      "32",
+      "64",
+      "Nie ma takich rejestrów"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 98,
+    "question": "Która instrukcja dla liczb bez znaku zmienia bajt na podwójne słowo:",
+    "answers": [
+      "xlatb",
+      "movzx",
+      "cbw",
+      "cbdw",
+      "bswap"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 99,
+    "question": "Która z instrukcji dla liczb ze znakiem przesyła dla warunku mniejszośc?",
+    "answers": [
+      "cmpbe",
+      "movl",
+      "movae",
+      "cmovnge",
+      "cmovnae"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 100,
+    "question": "Ile instrukcji na słowach może wykonad jedna instrukcja MMX",
+    "answers": [
+      "4",
+      "8",
+      "16",
+      "32",
+      "64"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 101,
+    "question": "Gównym konstruktorem procesorów 8086 był:",
+    "answers": [
+      "Steve Balmer",
+      "Steve Jobs",
+      "Steven Morse",
+      "Bill Gates",
+      "Żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 102,
+    "question": "Ile rejestrów XMM występuje w trybie EM64T procesorów Intel?",
+    "answers": [
+      "8",
+      "16",
+      "64",
+      "256",
+      "Żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 103,
+    "question": "Natychmiastowy tryb adresowania występuje w instrukcji",
+    "answers": [
+      "inc ecx",
+      "mov edi, offset tabela",
+      "mov zmienna, edx",
+      "or Edx, [ebx]",
+      "mov [Edi*8+tablica], edx"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 104,
+    "question": "Po wykonaniu instrukcji: \n mov edx, 0f459a01h \n bswap edx \n Rejestr edx będzie zawierał:",
+    "answers": [
+      "0f459a01h",
+      "9a010f45h",
+      "10a954f0h",
+      "019a450fh",
+      "Żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 105,
+    "question": "Instrukcja dec zmienia flagi:",
+    "answers": [
+      "OZAPC",
+      "OSAPC",
+      "OSZPC",
+      "OSZAC",
+      "OSZAP"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 106,
+    "question": "Po wykonaniu instrukcji \n mov eax, 0f0f0f0fh \n mov edx, 12345678h \n not ax \n inc dx \n and edx,eax \n Rejestr edx będzie zawieriał:",
+    "answers": [
+      "02045070h",
+      "12345678h",
+      "10300608h",
+      "02040608h",
+      "02040609h"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 107,
+    "question": "Współczesne procesory Intel i7 zbudowane są z około: ",
+    "answers": [
+      "100 tys, tranzystorów",
+      "1 mln tranzystorów",
+      "10 mln tranzystorów",
+      "100 mln tranzystorów",
+      "Żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 108,
+    "question": "Do odwołania się do zmiennych lokalnych stosuje się rejestr:",
+    "answers": [
+      "eax",
+      "ebx",
+      "ebp",
+      "esi",
+      "ds"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 109,
+    "question": "Która z instrukcji nie jest poprawna:",
+    "answers": [
+      "fmul",
+      "fadd ST, ST(1)",
+      "faddp ST, ST(1)",
+      "fsubr ST(1), ST",
+      "fsubrp ST(1),ST"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 110,
+    "question": "Która z instrukcji zmienia flagę C:",
+    "answers": [
+      "bswap",
+      "dec",
+      "ewd",
+      "fmul",
+      "fcomi"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 111,
+    "question": "Po wykonaniu instrukcji \n mov ecx, 11223344h \n mov eax, 87654321h \n shr eax, cl \n bts eax, 0 \n rejestr eax zawierać będzie:",
+    "answers": [
+      "08765433h",
+      "08765432h",
+      "043b2a190h",
+      "0e3b2a190h",
+      "021436587h"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 112,
+    "question": "Która z instrukcji wpisuję 0 do flagi CF?",
+    "answers": [
+      "cmc",
+      "eld",
+      "stc",
+      "clc",
+      "vld"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 113,
+    "question": "Która z instrukcji pozwala na poszukiwanie podanego znaku w tekście?",
+    "answers": [
+      "scasb",
+      "movsd",
+      "lodsw",
+      "cmpsb",
+      "stosw"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 114,
+    "question": "Ile rejestrów XMM posiadają w trybie EMT64T procesory Intel",
+    "answers": [
+      "8",
+      "16",
+      "32",
+      "64",
+      "Nie ma takich rejestrów"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 115,
+    "question": "Instrukcjie AVX Intel wprowadził po raz pierwszy w procesorze:",
+    "answers": [
+      "Pentium II",
+      "Pentium 4",
+      "Pentium D",
+      "Sandy Bridge",
+      "Ivy Bridge"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 116,
+    "question": "Prefix LOCK może odnosić się do instrukcji",
+    "answers": [
+      "nop",
+      "xchg",
+      "cmp",
+      "mov",
+      "fdiv"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 117,
+    "question": "Do prostego szyfrowania danych może służyd instrukcja",
+    "answers": [
+      "movsd",
+      "btr",
+      "cwde",
+      "xlatb",
+      "les"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 118,
+    "question": "Która z instrukcji dla liczb ze znakiem przesyła dla warunku większości ?",
+    "answers": [
+      "movg",
+      "movae",
+      "cmovnle",
+      "cmoka",
+      "cmpa"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 119,
+    "question": "Do zmiany kolejności słów w rejestrze MMX służy instrukcja:",
+    "answers": [
+      "ldmxesr",
+      "pmovmskb",
+      "cmovnge",
+      "psadbw",
+      "pushfw"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 120,
+    "question": "Wykonanie instrukcji: \n push [edx] \n pop [edx] \n Odpowiada instrukcji:",
+    "answers": [
+      "xor [edx], [ebx]",
+      "xchg [edx], [ebx]",
+      "xchg edx, ebx",
+      "fxch [edx], [ebx]",
+      "żadna z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 121,
+    "question": "Instrukcja włączająca przerwania to: ",
+    "answers": [
+      "sti",
+      "cmc",
+      "cmp",
+      "stp",
+      "cli"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 122,
+    "question": "Po wykonaniu instrukcji: \n mov edx, 0f459101h \n bswap edx \n Rejestr edx będzie zawierał:",
+    "answers": [
+      "0f459a01h",
+      "9a010f45h",
+      "10a95410h",
+      "0191450fh",
+      "Żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 123,
+    "question": "Instrukcja dec zmienia flagi:",
+    "answers": [
+      "OSZAPC",
+      "OSAPC",
+      "OSZPC",
+      "OSZAC",
+      "OSZAP"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 124,
+    "question": "Po wykonaniu której instrukcji zawartośd AL. Zmieni się 0c9h na 92h?",
+    "answers": [
+      "or al, 92h",
+      "neg al.",
+      "rol al, l",
+      "shl al, l",
+      "mov 92h, al"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 125,
+    "question": "W którym procesorze Intel po raz pierwszy zastosował tryb chorniony?",
+    "answers": [
+      "8086",
+      "80286",
+      "80386",
+      "Pentuim Pro",
+      "Żadne z powyższych"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 126,
+    "question": "Która z instrukcji neguje flagę CF?",
+    "answers": [
+      "cmc",
+      "stc",
+      "cld",
+      "std",
+      "clc"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 127,
+    "question": "Która z instrukcja dla liczb ze znakiem zamienia słowo na podwójne słowo?",
+    "answers": [
+      "movzx",
+      "cbw",
+      "cwde",
+      "xlatb",
+      "bswap"
+    ],
+    "explanation": "todo",
+    "correctAnswer": 0
+  },
+  {
+    "id": 128,
+    "question": "Która z instrukcji tworzy ramę stosu",
+    "answers": [
+      "push",
+      "call",
+      "enter",
+      "inc",
+      "leave"
+    ],
+    "explanation": "todo",
     "correctAnswer": 0
   }
 ]
