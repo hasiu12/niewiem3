@@ -22,7 +22,7 @@ async function fetchData() {
     console.log('Fetching quiz data...');
     if (!initialDataLoaded) {
         // Pobierz dane z pliku JSON
-        const response = await fetch('https://github.com/hasiu12/niewiem3/blob/main/quiz_data.json');
+        const response = await fetch('/quiz_data.json');
         quizData = await response.json(); // Pobierz wszystkie pytania
         const allQuestions = quizData.slice(); // Stwórz kopiê wszystkich pytañ
 
