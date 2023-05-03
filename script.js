@@ -23,6 +23,9 @@ async function fetchData() {
         try {
             // Pobierz dane z JSONbin.io
             const response = await fetch('https://api.jsonbin.io/v3/b/6452eae69d312622a356f1fc');
+            headers: {
+                    'X-Master-Key': '$2b$10$BbsRmIDNnUiQ7WXSyaL.HuG/KKFiqa5.2mnBS2v3nzTA60pusrz1.'
+                }
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
